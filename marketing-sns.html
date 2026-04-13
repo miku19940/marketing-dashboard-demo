@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マーケティング分析 - SNS施策 | Apparel BI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="marketing.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-mkt-page="4">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <ion-icon name="analytics-outline"></ion-icon>
+                <h2>Apparel BI</h2>
+            </div>
+            <p class="nav-title">Demo</p>
+            <nav class="channel-nav" style="margin-bottom: 24px;">
+                <ul>
+                    <li onclick="window.location.href='index.html'"><ion-icon name="home-outline"></ion-icon> デモトップ</li>
+                </ul>
+            </nav>
+            <p class="nav-title">Marketing Analytics</p>
+            <nav class="channel-nav" style="margin-bottom: 24px;">
+                <ul>
+                    <li onclick="window.location.href='marketing.html'"><ion-icon name="stats-chart-outline"></ion-icon> 売上・ユーザー</li>
+                    <li onclick="window.location.href='marketing-overall.html'"><ion-icon name="globe-outline"></ion-icon> 全体施策</li>
+                    <li onclick="window.location.href='marketing-ads.html'"><ion-icon name="megaphone-outline"></ion-icon> 広告施策</li>
+                    <li class="active" onclick="window.location.href='marketing-sns.html'"><ion-icon name="share-social-outline"></ion-icon> SNS施策</li>
+                    <li onclick="window.location.href='marketing-crm.html'"><ion-icon name="mail-outline"></ion-icon> CRM施策</li>
+                </ul>
+            </nav>
+            <div class="data-source-info">
+                <p>最終データ連携:<br><span id="update-time">--</span></p>
+                <button class="settings-btn"><ion-icon name="sync-outline"></ion-icon> データ手動更新</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1>マーケティング分析 - SNS施策</h1>
+                    <p class="page-header-sub">Instagram / X / TikTok / YouTube / LINE公式 / Pinterest</p>
+                </div>
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/7.x/notionists/svg?seed=MarketingAdmin" alt="User Avatar">
+                </div>
+            </header>
+
+            <div class="mkt-tabs">
+                <a href="marketing.html">1. 売上・ユーザー</a>
+                <a href="marketing-overall.html">2. 全体施策</a>
+                <a href="marketing-ads.html">3. 広告施策</a>
+                <a href="marketing-sns.html" class="active">4. SNS施策</a>
+                <a href="marketing-crm.html">5. CRM施策</a>
+            </div>
+
+            <!-- SNS KPI -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="share-social-outline"></ion-icon> SNS施策 サマリー</h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">SNS経由セッション</p>
+                        <h3 class="kpi-value">269,840</h3>
+                        <span class="kpi-delta up">▲ +22.4%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">SNS経由UU</p>
+                        <h3 class="kpi-value">163,600</h3>
+                        <span class="kpi-delta up">▲ +19.8%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">SNS平均CVR</p>
+                        <h3 class="kpi-value">1.68%</h3>
+                        <span class="kpi-delta up">▲ +0.18pt</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">投稿数 (合計)</p>
+                        <h3 class="kpi-value">146<span class="unit">本</span></h3>
+                        <span class="kpi-delta up">▲ +12本</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">総エンゲージメント</p>
+                        <h3 class="kpi-value">428,600</h3>
+                        <span class="kpi-delta up">▲ +16.2%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">フォロワー増加</p>
+                        <h3 class="kpi-value">+18,420</h3>
+                        <span class="kpi-delta up">▲ +32.8%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SNS スケジュール -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="calendar-outline"></ion-icon> SNS施策スケジュール (2026年4月)</h2>
+                <div class="schedule-card glass-panel">
+                    <div class="schedule-wrapper">
+                        <div class="schedule-grid schedule-grid-fine">
+                            <div class="sg-header label-col">媒体</div>
+                            <div class="sg-header">1</div><div class="sg-header">2</div><div class="sg-header">3</div>
+                            <div class="sg-header">4</div><div class="sg-header">5</div><div class="sg-header">6</div>
+                            <div class="sg-header">7</div><div class="sg-header">8</div><div class="sg-header">9</div>
+                            <div class="sg-header">10</div><div class="sg-header">11</div><div class="sg-header">12</div>
+                            <div class="sg-header">13</div><div class="sg-header">14</div><div class="sg-header">15</div>
+                            <div class="sg-header">16</div><div class="sg-header">17</div><div class="sg-header">18</div>
+                            <div class="sg-header">19</div><div class="sg-header">20</div><div class="sg-header">21</div>
+                            <div class="sg-header">22</div><div class="sg-header">23</div><div class="sg-header">24</div>
+                            <div class="sg-header">25</div><div class="sg-header">26</div><div class="sg-header">27</div>
+                            <div class="sg-header">28</div><div class="sg-header">29</div><div class="sg-header">30</div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#e1306c"></span>Instagram</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 8;"><div class="sg-bar sns">Reels 春コーデ #1〜#5</div></div>
+                            <div class="sg-cell" style="grid-column: 11 / span 7;"><div class="sg-bar sns">Storiesキャンペーン</div></div>
+                            <div class="sg-cell" style="grid-column: 19 / span 10;"><div class="sg-bar sns">GWセール Reels</div></div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#1da1f2"></span>X (Twitter)</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 30;"><div class="sg-bar sns" style="left:0%; right:0%;">デイリー投稿 (全期間)</div></div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#000000"></span>TikTok</div>
+                            <div class="sg-cell" style="grid-column: 5 / span 10;"><div class="sg-bar sns">クリエイター連携</div></div>
+                            <div class="sg-cell" style="grid-column: 18 / span 12;"><div class="sg-bar sns">ハッシュタグチャレンジ</div></div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#ff0000"></span>YouTube</div>
+                            <div class="sg-cell" style="grid-column: 8 / span 5;"><div class="sg-bar sns">コーデ動画 Ep.1</div></div>
+                            <div class="sg-cell" style="grid-column: 22 / span 5;"><div class="sg-bar sns">コーデ動画 Ep.2</div></div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#06c755"></span>LINE公式</div>
+                            <div class="sg-cell" style="grid-column: 4 / span 2;"><div class="sg-bar sns">新作</div></div>
+                            <div class="sg-cell" style="grid-column: 14 / span 2;"><div class="sg-bar sns">クーポン</div></div>
+                            <div class="sg-cell" style="grid-column: 25 / span 2;"><div class="sg-bar sns">GW予告</div></div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#e60023"></span>Pinterest</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 30;"><div class="sg-bar sns" style="left:0%; right:0%;">Idea Pin 週2本 (常時)</div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SNS媒体別セッション -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="trending-up-outline"></ion-icon> SNS媒体別 セッション推移</h2>
+                <div class="chart-card glass-panel wide-chart">
+                    <div class="canvas-wrapper" style="height: 360px;"><canvas id="chart-sns-sessions"></canvas></div>
+                </div>
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="bulb-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">SNSセッション コメント <span class="tag good">好調</span></div>
+                        <ul>
+                            <li><strong>Instagram</strong>: Reelsシリーズ公開後 (4/5-) セッションが急伸。1投稿あたり平均2.4万リーチ、バズ係数3.2倍。</li>
+                            <li><strong>TikTok</strong>: ハッシュタグチャレンジ開始 (4/18) から <strong>+68%</strong> 上昇。UGC投稿数 82件 発生。</li>
+                            <li><strong>YouTube</strong>: 動画2本のみだが視聴維持率 52% と高水準。月間セッションは少ないがサムネクリック率改善で更に伸ばせる。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SNS媒体別UU -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="people-outline"></ion-icon> SNS媒体別 UU</h2>
+                <div class="chart-card glass-panel wide-chart">
+                    <div class="canvas-wrapper" style="height: 320px;"><canvas id="chart-sns-uu"></canvas></div>
+                </div>
+
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="analytics-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">SNS UU 分析 <span class="tag">Insight</span></div>
+                        <ul>
+                            <li><strong>Instagram UU 48,200</strong> で媒体内最大。20代後半〜30代女性フォロワーのアクティブ率が高い。</li>
+                            <li><strong>TikTok UU 38,600</strong> と急伸。新規UU比率 82% で新規獲得媒体として機能中。</li>
+                            <li><strong>X は UU 22,400</strong> で横ばい。情報拡散はあるがサイト流入に繋げにくい。画像カルーセル+リンクカードの活用を強化。</li>
+                            <li><strong>Pinterest UUは8,400</strong>と少ないが、保存数/セッション比が高くLTV貢献あり。Idea Pinのテンプレ化で投稿量を倍増。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SNS媒体別CVR -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="swap-vertical-outline"></ion-icon> SNS媒体別 CVR</h2>
+                <div class="chart-card glass-panel wide-chart">
+                    <div class="canvas-wrapper" style="height: 340px;"><canvas id="chart-sns-cvr"></canvas></div>
+                </div>
+
+                <div class="table-card glass-panel" style="margin-top: 24px;">
+                    <h3>SNS媒体別 パフォーマンス</h3>
+                    <div class="table-responsive">
+                        <table class="data-table compact-table">
+                            <thead>
+                                <tr><th>#</th><th>媒体</th><th>投稿数</th><th>UU</th><th>エンゲージ率</th><th>CVR</th><th>CV数</th><th>前月比CVR</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><span class="rank-cell gold">1</span></td><td>LINE公式</td><td>6</td><td>31,200</td><td>8.2%</td><td>4.6%</td><td>1,435</td><td class="trend-up">▲ +0.4pt</td></tr>
+                                <tr><td><span class="rank-cell silver">2</span></td><td>TikTok</td><td>24</td><td>38,600</td><td>6.4%</td><td>2.2%</td><td>849</td><td class="trend-up">▲ +0.4pt</td></tr>
+                                <tr><td><span class="rank-cell bronze">3</span></td><td>Instagram</td><td>38</td><td>48,200</td><td>5.1%</td><td>1.8%</td><td>868</td><td class="trend-up">▲ +0.2pt</td></tr>
+                                <tr><td><span class="rank-cell">4</span></td><td>YouTube</td><td>2</td><td>14,800</td><td>4.8%</td><td>1.4%</td><td>207</td><td class="trend-up">▲ +0.2pt</td></tr>
+                                <tr><td><span class="rank-cell">5</span></td><td>Pinterest</td><td>16</td><td>8,400</td><td>3.2%</td><td>1.1%</td><td>92</td><td class="trend-up">▲ +0.1pt</td></tr>
+                                <tr><td><span class="rank-cell">6</span></td><td>X (Twitter)</td><td>60</td><td>22,400</td><td>2.1%</td><td>0.9%</td><td>202</td><td class="trend-down">▼ -0.2pt</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="flash-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">SNS 改善ポイント <span class="tag warn">要改善</span></div>
+                        <ul>
+                            <li><strong>X の CVR -0.2pt 低下</strong>: 拡散と購買の距離が遠い。ショップリンクカード / プロモツイート活用が必要。</li>
+                            <li><strong>Instagram</strong>: ショッピングタグを全Reelsに設置しショップ直送導線の拡充を検討。</li>
+                            <li><strong>LINE公式のCVR 4.6%</strong> は最も高い。配信頻度を週1→週2に拡大で売上貢献+30%見込。</li>
+                            <li><strong>TikTok</strong>: エンゲージ率高いもののCVR2.2%止まり。LPのモバイル最適化・ワンクリックApple Pay導入を推奨。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer-spacer"></div>
+        </main>
+    </div>
+
+    <script src="marketing.js"></script>
+</body>
+</html>

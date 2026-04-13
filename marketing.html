@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マーケティング分析 - 売上 / ユーザー特性 | Apparel BI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="marketing.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-mkt-page="1">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <ion-icon name="analytics-outline"></ion-icon>
+                <h2>Apparel BI</h2>
+            </div>
+
+            <p class="nav-title">Demo</p>
+            <nav class="channel-nav" style="margin-bottom: 24px;">
+                <ul>
+                    <li onclick="window.location.href='index.html'"><ion-icon name="home-outline"></ion-icon> デモトップ</li>
+                </ul>
+            </nav>
+
+            <p class="nav-title">Marketing Analytics</p>
+            <nav class="channel-nav" style="margin-bottom: 24px;">
+                <ul>
+                    <li class="active" onclick="window.location.href='marketing.html'">
+                        <ion-icon name="stats-chart-outline"></ion-icon> 売上・ユーザー
+                    </li>
+                    <li onclick="window.location.href='marketing-overall.html'">
+                        <ion-icon name="globe-outline"></ion-icon> 全体施策
+                    </li>
+                    <li onclick="window.location.href='marketing-ads.html'">
+                        <ion-icon name="megaphone-outline"></ion-icon> 広告施策
+                    </li>
+                    <li onclick="window.location.href='marketing-sns.html'">
+                        <ion-icon name="share-social-outline"></ion-icon> SNS施策
+                    </li>
+                    <li onclick="window.location.href='marketing-crm.html'">
+                        <ion-icon name="mail-outline"></ion-icon> CRM施策
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="data-source-info">
+                <p>最終データ連携:<br><span id="update-time">--</span></p>
+                <button class="settings-btn">
+                    <ion-icon name="sync-outline"></ion-icon> データ手動更新
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1>マーケティング分析 - 売上 & ユーザー特性</h1>
+                    <p class="page-header-sub">期間: 2026/04/01 〜 2026/04/30 (前月比)</p>
+                </div>
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/7.x/notionists/svg?seed=MarketingAdmin" alt="User Avatar">
+                </div>
+            </header>
+
+            <!-- タブナビ -->
+            <div class="mkt-tabs">
+                <a href="marketing.html" class="active">1. 売上・ユーザー</a>
+                <a href="marketing-overall.html">2. 全体施策</a>
+                <a href="marketing-ads.html">3. 広告施策</a>
+                <a href="marketing-sns.html">4. SNS施策</a>
+                <a href="marketing-crm.html">5. CRM施策</a>
+            </div>
+
+            <!-- 売上セクション -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="cash-outline"></ion-icon> 売上サマリー</h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">全体売上金額</p>
+                        <h3 class="kpi-value">¥58,420,000</h3>
+                        <span class="kpi-delta up">▲ +12.4% (vs 前月)</span>
+                        <span class="kpi-sub">目標達成率: 108.2%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">売上件数</p>
+                        <h3 class="kpi-value">14,826<span class="unit">件</span></h3>
+                        <span class="kpi-delta up">▲ +8.6%</span>
+                        <span class="kpi-sub">前月: 13,653件</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">売上点数</p>
+                        <h3 class="kpi-value">24,318<span class="unit">点</span></h3>
+                        <span class="kpi-delta up">▲ +10.2%</span>
+                        <span class="kpi-sub">前月: 22,068点</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">平均購入点数</p>
+                        <h3 class="kpi-value">1.64<span class="unit">点/件</span></h3>
+                        <span class="kpi-delta up">▲ +1.5%</span>
+                        <span class="kpi-sub">前月: 1.62点/件</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">平均購入金額</p>
+                        <h3 class="kpi-value">¥3,940</h3>
+                        <span class="kpi-delta up">▲ +3.5%</span>
+                        <span class="kpi-sub">前月: ¥3,806</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">プロパー購入率</p>
+                        <h3 class="kpi-value">62.0%</h3>
+                        <span class="kpi-delta down">▼ -2.8pt</span>
+                        <span class="kpi-sub">前月: 64.8%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">セール購入率</p>
+                        <h3 class="kpi-value">38.0%</h3>
+                        <span class="kpi-delta up">▲ +2.8pt</span>
+                        <span class="kpi-sub">前月: 35.2%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">LTV (12ヶ月)</p>
+                        <h3 class="kpi-value">¥26,400</h3>
+                        <span class="kpi-delta up">▲ +19.5% (YoY)</span>
+                        <span class="kpi-sub">前年同月: ¥22,100</span>
+                    </div>
+                </div>
+
+                <!-- 売上推移 -->
+                <div class="charts-container mb-section">
+                    <div class="chart-card glass-panel wide-chart">
+                        <h3>日別売上推移 (今月 vs 前月)</h3>
+                        <div class="canvas-wrapper"><canvas id="chart-daily-sales"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- 分析コメント -->
+                <div class="insight-box">
+                    <ion-icon name="bulb-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">分析コメント・改善ポイント <span class="tag warn">要注意</span></div>
+                        <ul>
+                            <li><strong>全体売上 +12.4%</strong> は好調。特に4/18-22のGW前セールで売上が突出(平均比 +180%)。</li>
+                            <li><strong>セール購入率が 35.2% → 38.0%</strong> に上昇。プロパー販売比率の低下が続いており、粗利圧迫のリスク。5月はプロパー施策(新作訴求LP・インフルエンサー投稿)に重点を置く必要あり。</li>
+                            <li><strong>平均購入点数は 1.64点/件</strong>。クロスセル/レコメンドUIの改善で 1.8点/件以上を目指せる余地あり。</li>
+                            <li><strong>LTV がYoY +19.5%</strong> とリピート施策の効果が顕在化。2回目購入率を+3ptでさらなる底上げを期待。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- プロパー/セール -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="pricetag-outline"></ion-icon> プロパー / セール購入比率</h2>
+                <div class="chart-wrapper-flex">
+                    <div class="chart-card glass-panel half-chart">
+                        <h3>購入金額構成</h3>
+                        <div class="canvas-wrapper pie-wrapper"><canvas id="chart-price-ratio"></canvas></div>
+                    </div>
+                    <div class="chart-card glass-panel half-chart">
+                        <h3>LTV推移 (年次比較)</h3>
+                        <div class="canvas-wrapper"><canvas id="chart-ltv"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="trending-up-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">LTV分析 <span class="tag good">好調</span></div>
+                        <ul>
+                            <li>12ヶ月累計LTVは <strong>¥26,400</strong>、前年同月比 <strong>+¥4,300 (+19.5%)</strong>。</li>
+                            <li>CRM施策(LINE公式 / アプリプッシュ)経由の既存顧客復活率が上昇し、2回目購入率 <strong>36.2% → 41.8%</strong> に改善。</li>
+                            <li>20-34歳女性セグメントのLTVが最も高く(<strong>¥32,600</strong>)、広告予算配分の最適化で全体LTVをさらに押し上げ可能。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ユーザー特性 -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="people-outline"></ion-icon> ユーザー特性</h2>
+                <div class="demographics-grid">
+                    <div class="chart-card glass-panel">
+                        <h3>男女比</h3>
+                        <div class="canvas-wrapper" style="height: 260px;"><canvas id="chart-gender"></canvas></div>
+                    </div>
+                    <div class="chart-card glass-panel">
+                        <h3>年齢分布</h3>
+                        <div class="canvas-wrapper" style="height: 260px;"><canvas id="chart-age"></canvas></div>
+                    </div>
+                    <div class="chart-card glass-panel">
+                        <h3>都道府県別 購入構成比 (上位10)</h3>
+                        <div class="canvas-wrapper" style="height: 260px;"><canvas id="chart-pref"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="analytics-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">ユーザー属性 分析コメント <span class="tag">Insight</span></div>
+                        <ul>
+                            <li>購入者の <strong>68%が女性</strong>。男性比率が前月比+2.4ptに上昇、メンズ新作ローンチが寄与。</li>
+                            <li>年齢は <strong>30-34歳がボリュームゾーン</strong> (19.3%)。20代の構成比が微減しており、Instagram Reelsなど若年層向けクリエイティブ再設計を推奨。</li>
+                            <li>地域別では <strong>東京 (22.4%) + 関東3県 (24.7%)</strong> で約47%を占有。関西エリアはポテンシャルに対しCVRが低めのためLINE公式クーポン配信を検討。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer-spacer"></div>
+        </main>
+    </div>
+
+    <script src="marketing.js"></script>
+</body>
+</html>

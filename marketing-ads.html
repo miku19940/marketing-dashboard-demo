@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マーケティング分析 - 広告施策 | Apparel BI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="marketing.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-mkt-page="3">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <ion-icon name="analytics-outline"></ion-icon>
+                <h2>Apparel BI</h2>
+            </div>
+            <p class="nav-title">Demo</p>
+            <nav class="channel-nav" style="margin-bottom: 24px;">
+                <ul>
+                    <li onclick="window.location.href='index.html'"><ion-icon name="home-outline"></ion-icon> デモトップ</li>
+                </ul>
+            </nav>
+            <p class="nav-title">Marketing Analytics</p>
+            <nav class="channel-nav" style="margin-bottom: 24px;">
+                <ul>
+                    <li onclick="window.location.href='marketing.html'"><ion-icon name="stats-chart-outline"></ion-icon> 売上・ユーザー</li>
+                    <li onclick="window.location.href='marketing-overall.html'"><ion-icon name="globe-outline"></ion-icon> 全体施策</li>
+                    <li class="active" onclick="window.location.href='marketing-ads.html'"><ion-icon name="megaphone-outline"></ion-icon> 広告施策</li>
+                    <li onclick="window.location.href='marketing-sns.html'"><ion-icon name="share-social-outline"></ion-icon> SNS施策</li>
+                    <li onclick="window.location.href='marketing-crm.html'"><ion-icon name="mail-outline"></ion-icon> CRM施策</li>
+                </ul>
+            </nav>
+            <div class="data-source-info">
+                <p>最終データ連携:<br><span id="update-time">--</span></p>
+                <button class="settings-btn"><ion-icon name="sync-outline"></ion-icon> データ手動更新</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1>マーケティング分析 - 広告施策</h1>
+                    <p class="page-header-sub">Google / Yahoo! / Meta / LINE / Criteo / TikTok</p>
+                </div>
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/7.x/notionists/svg?seed=MarketingAdmin" alt="User Avatar">
+                </div>
+            </header>
+
+            <div class="mkt-tabs">
+                <a href="marketing.html">1. 売上・ユーザー</a>
+                <a href="marketing-overall.html">2. 全体施策</a>
+                <a href="marketing-ads.html" class="active">3. 広告施策</a>
+                <a href="marketing-sns.html">4. SNS施策</a>
+                <a href="marketing-crm.html">5. CRM施策</a>
+            </div>
+
+            <!-- 広告施策KPI -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="megaphone-outline"></ion-icon> 広告施策 サマリー</h2>
+                <div class="kpi-grid">
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">広告総費用</p>
+                        <h3 class="kpi-value">¥8,420,000</h3>
+                        <span class="kpi-delta up">▲ +6.4%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">広告経由セッション</p>
+                        <h3 class="kpi-value">334,860</h3>
+                        <span class="kpi-delta up">▲ +18.2%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">広告経由UU</p>
+                        <h3 class="kpi-value">163,900</h3>
+                        <span class="kpi-delta up">▲ +14.6%</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">広告CVR</p>
+                        <h3 class="kpi-value">2.28%</h3>
+                        <span class="kpi-delta down">▼ -0.22pt</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">CPA</p>
+                        <h3 class="kpi-value">¥1,104</h3>
+                        <span class="kpi-delta down">▼ -¥68 (改善)</span>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <p class="kpi-label">ROAS</p>
+                        <h3 class="kpi-value">428%</h3>
+                        <span class="kpi-delta up">▲ +22pt</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 広告スケジュール -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="calendar-outline"></ion-icon> 広告施策スケジュール (2026年4月)</h2>
+                <div class="schedule-card glass-panel">
+                    <div class="schedule-wrapper">
+                        <div class="schedule-grid schedule-grid-fine">
+                            <div class="sg-header label-col">媒体</div>
+                            <div class="sg-header">1</div><div class="sg-header">2</div><div class="sg-header">3</div>
+                            <div class="sg-header">4</div><div class="sg-header">5</div><div class="sg-header">6</div>
+                            <div class="sg-header">7</div><div class="sg-header">8</div><div class="sg-header">9</div>
+                            <div class="sg-header">10</div><div class="sg-header">11</div><div class="sg-header">12</div>
+                            <div class="sg-header">13</div><div class="sg-header">14</div><div class="sg-header">15</div>
+                            <div class="sg-header">16</div><div class="sg-header">17</div><div class="sg-header">18</div>
+                            <div class="sg-header">19</div><div class="sg-header">20</div><div class="sg-header">21</div>
+                            <div class="sg-header">22</div><div class="sg-header">23</div><div class="sg-header">24</div>
+                            <div class="sg-header">25</div><div class="sg-header">26</div><div class="sg-header">27</div>
+                            <div class="sg-header">28</div><div class="sg-header">29</div><div class="sg-header">30</div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#2563eb"></span>Google広告</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 30;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">P-MAX / 検索 / ショッピング (常時)</div>
+                            </div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#dc2626"></span>Yahoo!広告</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 15;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">検索連動 ブランドキーワード</div>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 18 / span 10;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">GW刈取</div>
+                            </div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#4f46e5"></span>Meta広告 (Instagram/FB)</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 13;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">春SS Advantage+ Shopping</div>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 17 / span 10;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">GWセール Reels配信</div>
+                            </div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#059669"></span>LINE広告</div>
+                            <div class="sg-cell" style="grid-column: 5 / span 10;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">友だち追加促進</div>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 20 / span 8;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">セール刈取</div>
+                            </div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#f59e0b"></span>Criteo (DRT)</div>
+                            <div class="sg-cell" style="grid-column: 2 / span 30;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">カート離脱リターゲティング (常時)</div>
+                            </div>
+
+                            <div class="sg-row-label"><span class="dot" style="background:#ec4899"></span>TikTok Ads</div>
+                            <div class="sg-cell" style="grid-column: 8 / span 12;">
+                                <div class="sg-bar ads" style="left:0%; right:0%;">Spark Ads クリエイター配信</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 広告媒体別セッション -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="trending-up-outline"></ion-icon> 広告媒体別 セッション推移</h2>
+                <div class="chart-card glass-panel wide-chart">
+                    <div class="canvas-wrapper" style="height: 360px;"><canvas id="chart-ad-sessions"></canvas></div>
+                </div>
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="bulb-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">広告セッション コメント <span class="tag good">好調</span></div>
+                        <ul>
+                            <li><strong>Google広告</strong> が常時安定して最大流入。GW前 (4/18-) 刈取配信で更に <strong>+28%</strong> 上昇。</li>
+                            <li><strong>Meta広告</strong> は春SS期間中にピーク。後半にセッション減少傾向ありクリエイティブ疲弊の兆候。Advantage+ の新しい動画素材を4/25〜投入予定。</li>
+                            <li><strong>TikTok Ads</strong> は中旬にピーク。Spark Adsの動画3本の内、Creator Bがエンゲージ率 6.2% と突出。予算配分を+30%に調整推奨。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 広告媒体別UU -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="people-outline"></ion-icon> 広告媒体別 UU (今月 vs 前月)</h2>
+                <div class="chart-card glass-panel wide-chart">
+                    <div class="canvas-wrapper" style="height: 340px;"><canvas id="chart-ad-uu"></canvas></div>
+                </div>
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="analytics-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">広告UU 分析 <span class="tag">Insight</span></div>
+                        <ul>
+                            <li><strong>Google広告UUは 38,200 → 42,500 (+11.3%)</strong>。検索意図マッチのボリュームが伸長。</li>
+                            <li><strong>TikTok Ads は +23.1%</strong> と全媒体で最大の成長率。20-24歳女性の新規UU増が顕著。</li>
+                            <li><strong>Criteo は UUが前月比-7.6%</strong> と微減。セッションは維持だがフリークエンシー上限の調整が必要。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 広告媒体別CVR -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="swap-vertical-outline"></ion-icon> 広告媒体別 CVR</h2>
+                <div class="chart-card glass-panel wide-chart">
+                    <div class="canvas-wrapper" style="height: 340px;"><canvas id="chart-ad-cvr"></canvas></div>
+                </div>
+
+                <div class="table-card glass-panel" style="margin-top: 24px;">
+                    <h3>広告媒体別 パフォーマンスランキング</h3>
+                    <div class="table-responsive">
+                        <table class="data-table compact-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th><th>媒体</th><th>費用</th><th>UU</th><th>CVR</th><th>CV数</th><th>CPA</th><th>ROAS</th><th>前月差</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><span class="rank-cell gold">1</span></td><td>Criteo</td><td>¥1,120,000</td><td>14,600</td><td>3.4%</td><td>496</td><td>¥2,258</td><td>612%</td><td class="trend-up">▲ +48pt</td></tr>
+                                <tr><td><span class="rank-cell silver">2</span></td><td>Google広告</td><td>¥3,080,000</td><td>42,500</td><td>2.8%</td><td>1,190</td><td>¥2,588</td><td>521%</td><td class="trend-up">▲ +12pt</td></tr>
+                                <tr><td><span class="rank-cell bronze">3</span></td><td>LINE広告</td><td>¥980,000</td><td>19,800</td><td>2.6%</td><td>515</td><td>¥1,903</td><td>486%</td><td class="trend-up">▲ +8pt</td></tr>
+                                <tr><td><span class="rank-cell">4</span></td><td>Yahoo!広告</td><td>¥1,240,000</td><td>28,400</td><td>2.1%</td><td>596</td><td>¥2,081</td><td>398%</td><td class="trend-down">▼ -18pt</td></tr>
+                                <tr><td><span class="rank-cell">5</span></td><td>Meta広告</td><td>¥1,620,000</td><td>36,200</td><td>1.9%</td><td>688</td><td>¥2,355</td><td>372%</td><td class="trend-down">▼ -22pt</td></tr>
+                                <tr><td><span class="rank-cell">6</span></td><td>TikTok Ads</td><td>¥380,000</td><td>22,400</td><td>1.3%</td><td>291</td><td>¥1,306</td><td>318%</td><td class="trend-up">▲ +6pt</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="insight-box" style="margin-top: 24px;">
+                    <ion-icon name="flash-outline" class="insight-icon"></ion-icon>
+                    <div class="insight-body">
+                        <div class="insight-title">広告 改善ポイント <span class="tag warn">要改善</span></div>
+                        <ul>
+                            <li><strong>Meta広告 CVR 1.9% (前月比-0.22pt)</strong>: クリエイティブ疲弊。4/25〜 Reels縦型動画×UGC活用の新セットで改善を検証。</li>
+                            <li><strong>Yahoo!広告 CVRも低下傾向</strong>: 一般指名KWのマッチタイプ見直し、除外KW追加で無駄クリックを削減。</li>
+                            <li><strong>TikTok Ads はCVR低いがCPAが最安(¥1,306)</strong>: 認知〜興味の役割を担っているため、LP側にフォーム簡略化・カート直送導線を追加してCVR改善。</li>
+                            <li><strong>CriteoのROAS 612% は全媒体最高</strong>: 予算+20%増枠で刈取拡大余地。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer-spacer"></div>
+        </main>
+    </div>
+
+    <script src="marketing.js"></script>
+</body>
+</html>

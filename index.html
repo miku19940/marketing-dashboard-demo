@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アパレルマーケティング分析ダッシュボード | Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="marketing.css">
+    <style>
+        body { overflow-x: hidden; }
+        .landing-wrap {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
+        }
+        .landing-hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
+            border-radius: 24px;
+            margin-bottom: 48px;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+        }
+        .landing-hero .badge-top {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .landing-hero h1 {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .landing-hero p.lead {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 8px;
+            line-height: 1.8;
+        }
+        .landing-hero .note {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 24px;
+        }
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-heading ion-icon {
+            color: var(--accent-blue);
+            font-size: 22px;
+        }
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+        .page-card {
+            display: block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 28px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px -12px rgba(37, 99, 235, 0.18);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        .page-card .pc-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+        .page-card .pc-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .page-card .pc-title ion-icon {
+            font-size: 24px;
+            color: var(--accent-blue);
+        }
+        .page-card .pc-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .page-card .pc-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .page-card .pc-tag {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 10px;
+            background: #f1f5f9;
+            color: #475569;
+        }
+        .page-card .pc-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .page-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .page-card:hover::before {
+            opacity: 1;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 48px;
+            margin-bottom: 48px;
+        }
+        .feature-card {
+            padding: 24px;
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+        }
+        .feature-card ion-icon {
+            font-size: 28px;
+            color: var(--accent-purple);
+            margin-bottom: 12px;
+        }
+        .feature-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .landing-footer {
+            text-align: center;
+            padding: 32px 0;
+            font-size: 12px;
+            color: #94a3b8;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-wrap">
+        <section class="landing-hero">
+            <span class="badge-top">APPAREL MARKETING ANALYTICS DEMO</span>
+            <h1>アパレルマーケティング分析<br>ダッシュボード</h1>
+            <p class="lead">
+                売上実績・ユーザー特性・施策スケジュール・媒体別パフォーマンス（広告 / SNS / CRM）を<br>
+                一元的に可視化するマーケティング分析ツールのデモ画面です。
+            </p>
+            <p class="note">※ 画面上の数値はすべてサンプルデータです</p>
+        </section>
+
+        <h2 class="section-heading"><ion-icon name="albums-outline"></ion-icon> ダッシュボード一覧 (全5ページ)</h2>
+
+        <div class="page-grid">
+            <a href="marketing.html" class="page-card">
+                <div class="pc-number">PAGE 01</div>
+                <div class="pc-title"><ion-icon name="stats-chart-outline"></ion-icon>売上・ユーザー特性</div>
+                <div class="pc-desc">全体売上・売上件数・売上点数・平均購入金額・プロパー/セール比率・男女比・年齢・都道府県分布・LTVを可視化。</div>
+                <div class="pc-tags">
+                    <span class="pc-tag">売上KPI</span>
+                    <span class="pc-tag">LTV</span>
+                    <span class="pc-tag">ユーザー属性</span>
+                </div>
+                <div class="pc-link">ダッシュボードを開く <ion-icon name="arrow-forward-outline"></ion-icon></div>
+            </a>
+
+            <a href="marketing-overall.html" class="page-card">
+                <div class="pc-number">PAGE 02</div>
+                <div class="pc-title"><ion-icon name="globe-outline"></ion-icon>全体施策</div>
+                <div class="pc-desc">全体施策スケジュール（ガントチャート）と全体セッション・UU・CVR、媒体別の内訳と推移を表示。</div>
+                <div class="pc-tags">
+                    <span class="pc-tag">施策カレンダー</span>
+                    <span class="pc-tag">セッション</span>
+                    <span class="pc-tag">CVR</span>
+                </div>
+                <div class="pc-link">ダッシュボードを開く <ion-icon name="arrow-forward-outline"></ion-icon></div>
+            </a>
+
+            <a href="marketing-ads.html" class="page-card">
+                <div class="pc-number">PAGE 03</div>
+                <div class="pc-title"><ion-icon name="megaphone-outline"></ion-icon>広告施策</div>
+                <div class="pc-desc">Google / Yahoo! / Meta / LINE / Criteo / TikTok の広告媒体別セッション・UU・CVR / CPA / ROAS を比較。</div>
+                <div class="pc-tags">
+                    <span class="pc-tag">広告</span>
+                    <span class="pc-tag">ROAS</span>
+                    <span class="pc-tag">媒体比較</span>
+                </div>
+                <div class="pc-link">ダッシュボードを開く <ion-icon name="arrow-forward-outline"></ion-icon></div>
+            </a>
+
+            <a href="marketing-sns.html" class="page-card">
+                <div class="pc-number">PAGE 04</div>
+                <div class="pc-title"><ion-icon name="share-social-outline"></ion-icon>SNS施策</div>
+                <div class="pc-desc">Instagram / X / TikTok / YouTube / LINE公式 / Pinterest のSNS媒体別パフォーマンスとエンゲージメント。</div>
+                <div class="pc-tags">
+                    <span class="pc-tag">SNS</span>
+                    <span class="pc-tag">エンゲージ</span>
+                    <span class="pc-tag">媒体別CVR</span>
+                </div>
+                <div class="pc-link">ダッシュボードを開く <ion-icon name="arrow-forward-outline"></ion-icon></div>
+            </a>
+
+            <a href="marketing-crm.html" class="page-card">
+                <div class="pc-number">PAGE 05</div>
+                <div class="pc-title"><ion-icon name="mail-outline"></ion-icon>CRM施策</div>
+                <div class="pc-desc">メルマガ / LINE公式 / アプリプッシュ / Webプッシュ / SMS の既存顧客向け施策の配信効果を可視化。</div>
+                <div class="pc-tags">
+                    <span class="pc-tag">CRM</span>
+                    <span class="pc-tag">リピート率</span>
+                    <span class="pc-tag">配信効果</span>
+                </div>
+                <div class="pc-link">ダッシュボードを開く <ion-icon name="arrow-forward-outline"></ion-icon></div>
+            </a>
+        </div>
+
+        <h2 class="section-heading" style="margin-top: 56px;"><ion-icon name="sparkles-outline"></ion-icon> このデモでできること</h2>
+        <div class="feature-grid" style="margin-top: 0;">
+            <div class="feature-card">
+                <ion-icon name="bar-chart-outline"></ion-icon>
+                <h3>KPI ダッシュボード</h3>
+                <p>売上・CVR・LTVなど主要指標を前月比・前年比で一覧表示。目標達成率もひと目で把握できます。</p>
+            </div>
+            <div class="feature-card">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <h3>施策スケジュール</h3>
+                <p>ガントチャート形式でマーケティング施策を全体俯瞰。広告・SNS・CRMチャネルを横断で可視化。</p>
+            </div>
+            <div class="feature-card">
+                <ion-icon name="bulb-outline"></ion-icon>
+                <h3>自動分析コメント</h3>
+                <p>全ページに前月比の違いや改善ポイントを自動コメント表示。要注意/好調/要改善のタグ付き。</p>
+            </div>
+            <div class="feature-card">
+                <ion-icon name="layers-outline"></ion-icon>
+                <h3>媒体横断分析</h3>
+                <p>広告・SNS・CRMの各媒体別にセッション・UU・CVRを比較し、予算配分最適化のヒントを提供。</p>
+            </div>
+        </div>
+
+        <div class="landing-footer">
+            Apparel Marketing Analytics Dashboard — Demo Version<br>
+            数値はすべてサンプルデータです。実際の運用データ連携は実装時にご相談ください。
+        </div>
+    </div>
+</body>
+</html>
