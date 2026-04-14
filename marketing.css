@@ -304,6 +304,27 @@
     padding: 12px 4px 8px;
     margin-top: 6px;
 }
+.post-card .post-metrics.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+.post-card .post-metric.highlight {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 8px;
+    padding: 6px 2px;
+    margin: -6px -2px;
+}
+.post-card .post-metric.highlight ion-icon {
+    color: #d97706;
+    font-size: 20px;
+}
+.post-card .post-metric.highlight .val {
+    font-size: 16px;
+    color: #92400e;
+}
+.post-card .post-metric.highlight .lbl {
+    color: #92400e;
+    font-weight: 700;
+}
 .post-card .post-metric {
     text-align: center;
     display: flex;
