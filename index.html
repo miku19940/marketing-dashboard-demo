@@ -25,8 +25,27 @@
             padding: 80px 40px;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+        .page-head {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .page-head h1 {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+        .page-head p.subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            color: #94a3b8;
+            line-height: 1.7;
         }
         .card-grid {
             display: grid;
@@ -123,6 +142,10 @@
 </head>
 <body>
     <div class="landing-wrap">
+        <div class="page-head">
+            <h1>Apparel Marketing Analytics Dashboard</h1>
+            <p class="subtitle">マーケティング分析ツールのデモ画面です。サンプル数値を反映しております。</p>
+        </div>
         <div class="card-grid">
             <a href="marketing.html" class="page-card card-c1">
                 <div>
