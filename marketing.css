@@ -151,6 +151,37 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
 }
+.post-platform-row {
+    margin-bottom: 28px;
+}
+.post-platform-row-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 0 2px;
+}
+.post-platform-row-head .ph-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.post-platform-row-head .ph-title .ph-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.post-platform-row-head .ph-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: #f1f5f9;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
 .post-grid-scroll {
     display: flex;
     gap: 16px;
