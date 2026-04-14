@@ -65,6 +65,7 @@
             <div class="date-range-bar">
                 <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 期間</span>
                 <div class="drb-preset-group">
+                    <button>昨日</button>
                     <button>過去7日</button>
                     <button>過去30日</button>
                     <button class="active">今月</button>
@@ -133,65 +134,65 @@
                             <div class="sg-header">28</div><div class="sg-header">29</div><div class="sg-header">30</div>
 
                             <!-- Google P-MAX -->
-                            <div class="sg-row-label">
+                            <div class="sg-row-label" style="grid-row: 2; grid-column: 1;">
                                 <span class="primary"><span class="dot" style="background:#2563eb"></span>Google広告</span>
                                 <span class="secondary">P-MAX / 検索 / ショッピング</span>
                             </div>
-                            <div class="sg-cell" style="grid-column: 2 / span 30;">
+                            <div class="sg-cell" style="grid-row: 2; grid-column: 2 / span 30;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">常時配信</div>
                             </div>
 
                             <!-- Yahoo! search -->
-                            <div class="sg-row-label">
+                            <div class="sg-row-label" style="grid-row: 3; grid-column: 1;">
                                 <span class="primary"><span class="dot" style="background:#dc2626"></span>Yahoo!広告</span>
                                 <span class="secondary">検索連動ブランドKW</span>
                             </div>
-                            <div class="sg-cell" style="grid-column: 2 / span 15;">
+                            <div class="sg-cell" style="grid-row: 3; grid-column: 2 / span 15;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">ブランドKW</div>
                             </div>
-                            <div class="sg-cell" style="grid-column: 18 / span 10;">
+                            <div class="sg-cell" style="grid-row: 3; grid-column: 18 / span 10;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">GW刈取</div>
                             </div>
 
                             <!-- Meta Advantage+ -->
-                            <div class="sg-row-label">
+                            <div class="sg-row-label" style="grid-row: 4; grid-column: 1;">
                                 <span class="primary"><span class="dot" style="background:#4f46e5"></span>Meta広告</span>
                                 <span class="secondary">Instagram / Facebook</span>
                             </div>
-                            <div class="sg-cell" style="grid-column: 2 / span 13;">
+                            <div class="sg-cell" style="grid-row: 4; grid-column: 2 / span 13;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">春SS Advantage+ Shopping</div>
                             </div>
-                            <div class="sg-cell" style="grid-column: 17 / span 10;">
+                            <div class="sg-cell" style="grid-row: 4; grid-column: 17 / span 10;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">GWセール Reels配信</div>
                             </div>
 
                             <!-- LINE -->
-                            <div class="sg-row-label">
+                            <div class="sg-row-label" style="grid-row: 5; grid-column: 1;">
                                 <span class="primary"><span class="dot" style="background:#059669"></span>LINE広告</span>
                                 <span class="secondary">タイムライン / VOOM</span>
                             </div>
-                            <div class="sg-cell" style="grid-column: 5 / span 10;">
+                            <div class="sg-cell" style="grid-row: 5; grid-column: 5 / span 10;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">友だち追加促進</div>
                             </div>
-                            <div class="sg-cell" style="grid-column: 20 / span 8;">
+                            <div class="sg-cell" style="grid-row: 5; grid-column: 20 / span 8;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">セール刈取</div>
                             </div>
 
                             <!-- Criteo -->
-                            <div class="sg-row-label">
+                            <div class="sg-row-label" style="grid-row: 6; grid-column: 1;">
                                 <span class="primary"><span class="dot" style="background:#f59e0b"></span>Criteo</span>
                                 <span class="secondary">DRT / リターゲティング</span>
                             </div>
-                            <div class="sg-cell" style="grid-column: 2 / span 30;">
+                            <div class="sg-cell" style="grid-row: 6; grid-column: 2 / span 30;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">カート離脱リターゲ (常時)</div>
                             </div>
 
                             <!-- TikTok -->
-                            <div class="sg-row-label">
+                            <div class="sg-row-label" style="grid-row: 7; grid-column: 1;">
                                 <span class="primary"><span class="dot" style="background:#ec4899"></span>TikTok Ads</span>
                                 <span class="secondary">Spark Ads / In-Feed</span>
                             </div>
-                            <div class="sg-cell" style="grid-column: 8 / span 12;">
+                            <div class="sg-cell" style="grid-row: 7; grid-column: 8 / span 12;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">クリエイター配信</div>
                             </div>
                         </div>
@@ -207,7 +208,8 @@
                 <div class="date-range-bar inline-sub">
                     <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 指標期間</span>
                     <div class="drb-preset-group">
-                        <button>過去7日</button>
+                        <button>昨日</button>
+                    <button>過去7日</button>
                         <button>過去30日</button>
                         <button class="active">今月</button>
                         <button>先月</button>
