@@ -446,10 +446,112 @@ MKT.initPage4 = function() {};
 // =====================================================
 MKT.initPage5 = function() {};
 
+// =====================================================
+// 期間プリセット選択の動作
+// デモ用の基準日: 2026-04-30 (サンプルデータの最終日)
+// =====================================================
+MKT.initDateRangeBars = function() {
+    const refDate = new Date('2026-04-30T00:00:00');
+    const fmt = (d) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+    };
+    const addDays = (d, n) => {
+        const r = new Date(d);
+        r.setDate(r.getDate() + n);
+        return r;
+    };
+
+    // プリセット名からstart/endの日付範囲を返す
+    const computeRange = (label) => {
+        const today = new Date(refDate);
+        if (label === '昨日') {
+            const y = addDays(today, -1);
+            return { start: y, end: y };
+        }
+        if (label === '過去7日') {
+            return { start: addDays(today, -7), end: addDays(today, -1) };
+        }
+        if (label === '過去30日') {
+            return { start: addDays(today, -30), end: addDays(today, -1) };
+        }
+        if (label === '今月') {
+            const s = new Date(today.getFullYear(), today.getMonth(), 1);
+            return { start: s, end: today };
+        }
+        if (label === '先月') {
+            const s = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+            const e = new Date(today.getFullYear(), today.getMonth(), 0);
+            return { start: s, end: e };
+        }
+        if (label === '今年') {
+            const s = new Date(today.getFullYear(), 0, 1);
+            return { start: s, end: today };
+        }
+        return null;
+    };
+
+    // 各期間選択バーにイベントをバインド
+    document.querySelectorAll('.date-range-bar').forEach(bar => {
+        const buttons = bar.querySelectorAll('.drb-preset-group button');
+        const inputs = bar.querySelectorAll('input[type="date"]');
+        const applyBtn = bar.querySelector('.drb-apply');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // アクティブ切り替え
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // 日付入力を更新
+                const label = btn.textContent.trim();
+                const range = computeRange(label);
+                if (range && inputs.length >= 2) {
+                    inputs[0].value = fmt(range.start);
+                    inputs[1].value = fmt(range.end);
+                }
+            });
+        });
+
+        // 日付入力を直接変更した場合はプリセットのアクティブを解除
+        inputs.forEach(inp => {
+            inp.addEventListener('change', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+            });
+        });
+
+        // 適用ボタン
+        if (applyBtn) {
+            applyBtn.addEventListener('click', () => {
+                const from = inputs[0] ? inputs[0].value : '';
+                const to = inputs[1] ? inputs[1].value : '';
+                // デモ画面: 実データ連携は未実装のためトーストで通知
+                MKT.showToast(`期間を適用しました: ${from} 〜 ${to}`);
+            });
+        }
+    });
+};
+
+MKT.showToast = function(message) {
+    let toast = document.getElementById('mkt-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'mkt-toast';
+        toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:12px 22px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 10px 28px -10px rgba(0,0,0,0.3);z-index:9999;opacity:0;transition:opacity .2s;';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.style.opacity = '1';
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => { toast.style.opacity = '0'; }, 2200);
+};
+
 // --- 初期化 ---------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     MKT.chartDefaults();
     MKT.setUpdateTime();
+    MKT.initDateRangeBars();
     const page = document.body.getAttribute('data-mkt-page');
     if (page === '1') MKT.initPage1();
     else if (page === '2') MKT.initPage2();
