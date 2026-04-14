@@ -190,25 +190,50 @@ MKT.initPage1 = function() {
         });
     }
 
-    // プロパー/セール比率
-    const priceCtx = document.getElementById('chart-price-ratio');
-    if (priceCtx) {
-        new Chart(priceCtx, {
-            type: 'doughnut',
+    // 日別 購入金額構成 (プロパー / セール) 積み上げ棒
+    const priceDailyCtx = document.getElementById('chart-price-daily');
+    if (priceDailyCtx) {
+        const dailyLabels = MKT.dateLabels(30);
+        const properData = MKT.seriesSeeded(55, 30, 1150000, 420000);
+        const saleData = MKT.seriesSeeded(78, 30, 700000, 320000);
+        new Chart(priceDailyCtx, {
+            type: 'bar',
             data: {
-                labels: ['プロパー購入', 'セール購入'],
-                datasets: [{
-                    data: [62, 38],
-                    backgroundColor: [MKT.palette.blue, MKT.palette.amber],
-                    borderWidth: 0
-                }]
+                labels: dailyLabels,
+                datasets: [
+                    {
+                        label: 'プロパー購入',
+                        data: properData,
+                        backgroundColor: MKT.palette.blue,
+                        borderRadius: 3,
+                        borderSkipped: false
+                    },
+                    {
+                        label: 'セール購入',
+                        data: saleData,
+                        backgroundColor: MKT.palette.amber,
+                        borderRadius: 3,
+                        borderSkipped: false
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                cutout: '65%',
+                scales: {
+                    x: { stacked: true },
+                    y: {
+                        stacked: true,
+                        ticks: { callback: (v) => '¥' + (v/10000).toFixed(0) + '万' }
+                    }
+                },
                 plugins: {
-                    legend: { position: 'bottom' }
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.dataset.label + ': ' + MKT.fmtYen(ctx.raw)
+                        }
+                    }
                 }
             }
         });
@@ -340,313 +365,52 @@ MKT.initPage2 = function() {
         });
     }
 
-    // 媒体別セッション (stacked area)
-    const msesCtx = document.getElementById('chart-media-sessions');
-    if (msesCtx) {
-        new Chart(msesCtx, {
-            type: 'bar',
-            data: {
-                labels,
-                datasets: [
-                    { label: '自然検索', data: MKT.seriesSeeded(2, 30, 14000, 2800), backgroundColor: MKT.palette.blue },
-                    { label: '広告', data: MKT.seriesSeeded(6, 30, 11000, 3200), backgroundColor: MKT.palette.purple },
-                    { label: 'SNS', data: MKT.seriesSeeded(10, 30, 8800, 2600), backgroundColor: MKT.palette.green },
-                    { label: 'CRM', data: MKT.seriesSeeded(14, 30, 6200, 1800), backgroundColor: MKT.palette.amber },
-                    { label: 'リファラル', data: MKT.seriesSeeded(18, 30, 3400, 1200), backgroundColor: MKT.palette.cyan },
-                    { label: '直接流入', data: MKT.seriesSeeded(22, 30, 4200, 1400), backgroundColor: MKT.palette.slate }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                scales: { x: { stacked: true }, y: { stacked: true } }
-            }
-        });
-    }
-
-    // 媒体別UU (doughnut)
+    // 媒体別UU構成比 (doughnut)
     const muuCtx = document.getElementById('chart-media-uu');
     if (muuCtx) {
         new Chart(muuCtx, {
             type: 'doughnut',
             data: {
-                labels: ['自然検索', '広告', 'SNS', 'CRM', 'リファラル', '直接流入'],
+                labels: ['自然検索', '広告', 'SNS', 'CRM', '直接流入', 'リファラル'],
                 datasets: [{
-                    data: [28.4, 22.6, 18.2, 12.8, 8.4, 9.6],
+                    data: [28.4, 22.6, 18.2, 12.8, 9.6, 8.4],
                     backgroundColor: [
                         MKT.palette.blue, MKT.palette.purple, MKT.palette.green,
-                        MKT.palette.amber, MKT.palette.cyan, MKT.palette.slate
+                        MKT.palette.amber, MKT.palette.slate, MKT.palette.cyan
                     ],
                     borderWidth: 0
                 }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
-                cutout: '55%',
-                plugins: { legend: { position: 'right' } }
-            }
-        });
-    }
-
-    // 媒体別CVR
-    const mcvrCtx = document.getElementById('chart-media-cvr');
-    if (mcvrCtx) {
-        new Chart(mcvrCtx, {
-            type: 'bar',
-            data: {
-                labels: ['自然検索', '広告', 'SNS', 'CRM', 'リファラル', '直接流入'],
-                datasets: [
-                    {
-                        label: '今月CVR (%)',
-                        data: [3.2, 2.1, 1.4, 5.8, 2.6, 4.2],
-                        backgroundColor: MKT.palette.blue,
-                        borderRadius: 6
-                    },
-                    {
-                        label: '前月CVR (%)',
-                        data: [3.0, 2.4, 1.2, 5.2, 2.2, 4.0],
-                        backgroundColor: MKT.palette.slate,
-                        borderRadius: 6
+                cutout: '60%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.label + ': ' + ctx.parsed.toFixed(1) + '%'
+                        }
                     }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                scales: { y: { ticks: { callback: (v) => v + '%' } } }
+                }
             }
         });
     }
 };
 
 // =====================================================
-// ページ3: 広告施策
+// ページ3: 広告施策 (グラフは削除済み。数値テーブルのみ)
 // =====================================================
-MKT.initPage3 = function() {
-    const labels = MKT.dateLabels(30);
-    const mediaColors = {
-        'Google広告': MKT.palette.blue,
-        'Yahoo!広告': MKT.palette.red,
-        'Meta広告': MKT.palette.indigo,
-        'LINE広告': MKT.palette.green,
-        'Criteo': MKT.palette.amber,
-        'TikTok Ads': MKT.palette.pink
-    };
-
-    // 広告媒体別セッション
-    const ctx1 = document.getElementById('chart-ad-sessions');
-    if (ctx1) {
-        new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels,
-                datasets: Object.keys(mediaColors).map((k, i) => ({
-                    label: k,
-                    data: MKT.seriesSeeded(3 + i * 7, 30, 2200 + i * 300, 800),
-                    borderColor: mediaColors[k],
-                    backgroundColor: mediaColors[k] + '22',
-                    tension: 0.3,
-                    borderWidth: 2,
-                    pointRadius: 0,
-                    fill: false
-                }))
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-    }
-
-    // 広告媒体別UU
-    const ctx2 = document.getElementById('chart-ad-uu');
-    if (ctx2) {
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(mediaColors),
-                datasets: [
-                    {
-                        label: '今月UU',
-                        data: [42500, 28400, 36200, 19800, 14600, 22400],
-                        backgroundColor: MKT.palette.purple,
-                        borderRadius: 6
-                    },
-                    {
-                        label: '前月UU',
-                        data: [38200, 26100, 30400, 18200, 15800, 18200],
-                        backgroundColor: MKT.palette.slate,
-                        borderRadius: 6
-                    }
-                ]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-    }
-
-    // 広告媒体別CVR
-    const ctx3 = document.getElementById('chart-ad-cvr');
-    if (ctx3) {
-        new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(mediaColors),
-                datasets: [{
-                    label: 'CVR (%)',
-                    data: [2.8, 2.1, 1.9, 2.6, 3.4, 1.3],
-                    backgroundColor: Object.values(mediaColors),
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { ticks: { callback: (v) => v + '%' } } }
-            }
-        });
-    }
-};
+MKT.initPage3 = function() {};
 
 // =====================================================
-// ページ4: SNS施策
+// ページ4: SNS施策 (グラフは削除済み。数値テーブルのみ)
 // =====================================================
-MKT.initPage4 = function() {
-    const labels = MKT.dateLabels(30);
-    const mediaColors = {
-        'Instagram': '#e1306c',
-        'X (Twitter)': '#1da1f2',
-        'TikTok': '#000000',
-        'YouTube': '#ff0000',
-        'LINE公式': '#06c755',
-        'Pinterest': '#e60023'
-    };
-
-    const ctx1 = document.getElementById('chart-sns-sessions');
-    if (ctx1) {
-        new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels,
-                datasets: Object.keys(mediaColors).map((k, i) => ({
-                    label: k,
-                    data: MKT.seriesSeeded(5 + i * 9, 30, 1800 + i * 200, 700),
-                    borderColor: mediaColors[k],
-                    backgroundColor: mediaColors[k] + '22',
-                    tension: 0.3,
-                    borderWidth: 2,
-                    pointRadius: 0,
-                    fill: false
-                }))
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-    }
-
-    const ctx2 = document.getElementById('chart-sns-uu');
-    if (ctx2) {
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(mediaColors),
-                datasets: [
-                    {
-                        label: '今月UU',
-                        data: [48200, 22400, 38600, 14800, 31200, 8400],
-                        backgroundColor: Object.values(mediaColors),
-                        borderRadius: 6
-                    }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false } }
-            }
-        });
-    }
-
-    const ctx3 = document.getElementById('chart-sns-cvr');
-    if (ctx3) {
-        new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(mediaColors),
-                datasets: [
-                    { label: '今月CVR (%)', data: [1.8, 0.9, 2.2, 1.4, 4.6, 1.1], backgroundColor: MKT.palette.green, borderRadius: 6 },
-                    { label: '前月CVR (%)', data: [1.6, 1.1, 1.8, 1.2, 4.2, 1.0], backgroundColor: MKT.palette.slate, borderRadius: 6 }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                scales: { y: { ticks: { callback: (v) => v + '%' } } }
-            }
-        });
-    }
-};
+MKT.initPage4 = function() {};
 
 // =====================================================
-// ページ5: CRM (メルマガ / LINE / プッシュ)
+// ページ5: CRM (グラフは削除済み。数値テーブルのみ)
 // =====================================================
-MKT.initPage5 = function() {
-    const labels = MKT.dateLabels(30);
-    const mediaColors = {
-        'メルマガ': MKT.palette.amber,
-        'LINE公式': '#06c755',
-        'アプリプッシュ': MKT.palette.purple,
-        'Webプッシュ': MKT.palette.cyan,
-        'SMS': MKT.palette.red
-    };
-
-    const ctx1 = document.getElementById('chart-crm-sessions');
-    if (ctx1) {
-        new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels,
-                datasets: Object.keys(mediaColors).map((k, i) => ({
-                    label: k,
-                    data: MKT.seriesSeeded(7 + i * 11, 30, 2400 + i * 250, 900),
-                    borderColor: mediaColors[k],
-                    backgroundColor: mediaColors[k] + '22',
-                    tension: 0.3,
-                    borderWidth: 2,
-                    pointRadius: 0,
-                    fill: false
-                }))
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-    }
-
-    const ctx2 = document.getElementById('chart-crm-uu');
-    if (ctx2) {
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(mediaColors),
-                datasets: [
-                    { label: '開封/クリックUU', data: [52400, 68200, 44800, 18600, 12400], backgroundColor: Object.values(mediaColors), borderRadius: 6 }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false } }
-            }
-        });
-    }
-
-    const ctx3 = document.getElementById('chart-crm-cvr');
-    if (ctx3) {
-        new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(mediaColors),
-                datasets: [
-                    { label: '今月CVR (%)', data: [6.4, 8.2, 5.1, 3.2, 2.4], backgroundColor: MKT.palette.amber, borderRadius: 6 },
-                    { label: '前月CVR (%)', data: [5.8, 7.6, 4.8, 2.9, 2.6], backgroundColor: MKT.palette.slate, borderRadius: 6 }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                scales: { y: { ticks: { callback: (v) => v + '%' } } }
-            }
-        });
-    }
-};
+MKT.initPage5 = function() {};
 
 // --- 初期化 ---------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {

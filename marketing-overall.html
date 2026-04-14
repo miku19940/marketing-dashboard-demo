@@ -46,7 +46,7 @@
             <header class="top-header">
                 <div>
                     <h1>マーケティング分析 - 全体施策</h1>
-                    <p class="page-header-sub">期間: 2026/04/01 〜 2026/04/30 / 全流入統合ビュー</p>
+                    <p class="page-header-sub">全流入統合ビュー</p>
                 </div>
                 <div class="user-profile">
                     <img src="https://api.dicebear.com/7.x/notionists/svg?seed=MarketingAdmin" alt="User Avatar">
@@ -61,95 +61,86 @@
                 <a href="marketing-crm.html">5. CRM施策</a>
             </div>
 
-            <!-- 全体施策スケジュール -->
+            <!-- 期間指定 -->
+            <div class="date-range-bar">
+                <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 期間</span>
+                <div class="drb-preset-group">
+                    <button>過去7日</button>
+                    <button>過去30日</button>
+                    <button class="active">今月</button>
+                    <button>先月</button>
+                    <button>今年</button>
+                </div>
+                <input type="date" value="2026-04-01">
+                <span class="drb-sep">〜</span>
+                <input type="date" value="2026-04-30">
+                <button class="drb-apply">適用</button>
+            </div>
+
+            <!-- 全体施策スケジュール (月カレンダー) -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="calendar-outline"></ion-icon> 全体施策スケジュール (2026年4月)</h2>
                 <div class="schedule-card glass-panel">
-                    <div class="schedule-wrapper">
-                        <div class="schedule-grid schedule-grid-fine" id="schedule-overall">
-                            <!-- header -->
-                            <div class="sg-header label-col">施策</div>
-                            <!-- 30 day headers injected by script below -->
-                            <div class="sg-header">1</div><div class="sg-header">2</div><div class="sg-header">3</div>
-                            <div class="sg-header">4</div><div class="sg-header">5</div><div class="sg-header">6</div>
-                            <div class="sg-header">7</div><div class="sg-header">8</div><div class="sg-header">9</div>
-                            <div class="sg-header">10</div><div class="sg-header">11</div><div class="sg-header">12</div>
-                            <div class="sg-header">13</div><div class="sg-header">14</div><div class="sg-header">15</div>
-                            <div class="sg-header">16</div><div class="sg-header">17</div><div class="sg-header">18</div>
-                            <div class="sg-header">19</div><div class="sg-header">20</div><div class="sg-header">21</div>
-                            <div class="sg-header">22</div><div class="sg-header">23</div><div class="sg-header">24</div>
-                            <div class="sg-header">25</div><div class="sg-header">26</div><div class="sg-header">27</div>
-                            <div class="sg-header">28</div><div class="sg-header">29</div><div class="sg-header">30</div>
+                    <div class="month-calendar">
+                        <div class="mc-dow sun">Sun</div>
+                        <div class="mc-dow">Mon</div>
+                        <div class="mc-dow">Tue</div>
+                        <div class="mc-dow">Wed</div>
+                        <div class="mc-dow">Thu</div>
+                        <div class="mc-dow">Fri</div>
+                        <div class="mc-dow sat">Sat</div>
 
-                            <!-- 春SSキャンペーン -->
-                            <div class="sg-row-label"><span class="dot" style="background:#2563eb"></span>春SSキャンペーン</div>
-                            <div class="sg-cell" style="grid-column: 2 / span 30;">
-                                <div class="sg-bar campaign" style="left:0%; right:0%;">春SS・新作プロモーション (全期間)</div>
-                            </div>
+                        <!-- Week 1: 1-4 start Wed -->
+                        <div class="mc-day empty"></div>
+                        <div class="mc-day empty"></div>
+                        <div class="mc-day empty"></div>
+                        <div class="mc-day"><span class="mc-date">1</span><div class="mc-event campaign">春SSキャンペーン 開始</div></div>
+                        <div class="mc-day"><span class="mc-date">2</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">3</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date sat">4</span><div class="mc-event campaign">春SS</div></div>
 
-                            <!-- GW前セール -->
-                            <div class="sg-row-label"><span class="dot" style="background:#dc2626"></span>GW前セール</div>
-                            <div class="sg-cell" style="grid-column: 19 / span 7;">
-                                <div class="sg-bar sale" style="left:0%; right:0%;">GW前セール (4/18-24)</div>
-                            </div>
+                        <!-- Week 2 -->
+                        <div class="mc-day"><span class="mc-date sun">5</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">6</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">7</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">8</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">9</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">10</span><div class="mc-event campaign">春SS</div><div class="mc-event other">新作LP公開</div></div>
+                        <div class="mc-day"><span class="mc-date sat">11</span><div class="mc-event campaign">春SS</div></div>
 
-                            <!-- 広告配信 -->
-                            <div class="sg-row-label"><span class="dot" style="background:#7c3aed"></span>広告配信強化</div>
-                            <div class="sg-cell" style="grid-column: 2 / span 14;">
-                                <div class="sg-bar ads" style="left:0%; right:0%;">Google/Meta/LINE広告 ブランドフェーズ</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 17 / span 8;">
-                                <div class="sg-bar ads" style="left:0%; right:0%;">GW前 刈取配信</div>
-                            </div>
+                        <!-- Week 3 -->
+                        <div class="mc-day"><span class="mc-date sun">12</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">13</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">14</span><div class="mc-event campaign">春SS</div></div>
+                        <div class="mc-day"><span class="mc-date">15</span><div class="mc-event campaign">春SS</div><div class="mc-event event">会員限定プレセール</div></div>
+                        <div class="mc-day"><span class="mc-date">16</span><div class="mc-event campaign">春SS</div><div class="mc-event event">プレセール</div></div>
+                        <div class="mc-day"><span class="mc-date">17</span><div class="mc-event campaign">春SS</div><div class="mc-event event">プレセール</div></div>
+                        <div class="mc-day"><span class="mc-date sat">18</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール 開始</div></div>
 
-                            <!-- SNS -->
-                            <div class="sg-row-label"><span class="dot" style="background:#059669"></span>SNS投稿企画</div>
-                            <div class="sg-cell" style="grid-column: 4 / span 6;">
-                                <div class="sg-bar sns" style="left:0%; right:0%;">Instagram Reelsシリーズ</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 12 / span 9;">
-                                <div class="sg-bar sns" style="left:0%; right:0%;">TikTok インフルエンサー</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 22 / span 6;">
-                                <div class="sg-bar sns" style="left:0%; right:0%;">YouTube コーデ動画</div>
-                            </div>
+                        <!-- Week 4 -->
+                        <div class="mc-day"><span class="mc-date sun">19</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール</div></div>
+                        <div class="mc-day"><span class="mc-date">20</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール</div></div>
+                        <div class="mc-day"><span class="mc-date">21</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール</div></div>
+                        <div class="mc-day"><span class="mc-date">22</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール</div></div>
+                        <div class="mc-day"><span class="mc-date">23</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール</div></div>
+                        <div class="mc-day"><span class="mc-date">24</span><div class="mc-event campaign">春SS</div><div class="mc-event sale">GW前セール 最終日</div></div>
+                        <div class="mc-day"><span class="mc-date sat">25</span><div class="mc-event campaign">春SS</div><div class="mc-event event">GW本番開始</div></div>
 
-                            <!-- CRM -->
-                            <div class="sg-row-label"><span class="dot" style="background:#f59e0b"></span>CRM (メルマガ/LINE)</div>
-                            <div class="sg-cell" style="grid-column: 3 / span 2;">
-                                <div class="sg-bar crm">新作</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 10 / span 2;">
-                                <div class="sg-bar crm">会員</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 17 / span 2;">
-                                <div class="sg-bar crm">GW予告</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 23 / span 2;">
-                                <div class="sg-bar crm">リマ</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 28 / span 2;">
-                                <div class="sg-bar crm">GW本番</div>
-                            </div>
-
-                            <!-- LP -->
-                            <div class="sg-row-label"><span class="dot" style="background:#0891b2"></span>LP・特集ページ</div>
-                            <div class="sg-cell" style="grid-column: 2 / span 10;">
-                                <div class="sg-bar lp" style="left:0%; right:0%;">SS新作特集LP</div>
-                            </div>
-                            <div class="sg-cell" style="grid-column: 18 / span 8;">
-                                <div class="sg-bar lp" style="left:0%; right:0%;">GWセール特集LP</div>
-                            </div>
-                        </div>
+                        <!-- Week 5 -->
+                        <div class="mc-day"><span class="mc-date sun">26</span><div class="mc-event campaign">春SS</div><div class="mc-event event">GW本番</div></div>
+                        <div class="mc-day"><span class="mc-date">27</span><div class="mc-event campaign">春SS</div><div class="mc-event event">GW本番</div></div>
+                        <div class="mc-day"><span class="mc-date">28</span><div class="mc-event campaign">春SS</div><div class="mc-event event">GW本番</div></div>
+                        <div class="mc-day"><span class="mc-date">29</span><div class="mc-event campaign">春SS</div><div class="mc-event event">GW本番</div></div>
+                        <div class="mc-day"><span class="mc-date">30</span><div class="mc-event campaign">春SS 最終日</div><div class="mc-event event">GW本番</div></div>
+                        <div class="mc-day empty"></div>
+                        <div class="mc-day empty"></div>
                     </div>
 
-                    <div class="legend-row">
-                        <span class="legend-chip"><span class="sw" style="background:#2563eb"></span>キャンペーン</span>
+                    <div class="legend-row" style="margin-top: 16px;">
+                        <span class="legend-chip"><span class="sw" style="background:#2563eb"></span>大型キャンペーン</span>
                         <span class="legend-chip"><span class="sw" style="background:#dc2626"></span>セール</span>
-                        <span class="legend-chip"><span class="sw" style="background:#7c3aed"></span>広告</span>
-                        <span class="legend-chip"><span class="sw" style="background:#059669"></span>SNS</span>
-                        <span class="legend-chip"><span class="sw" style="background:#f59e0b"></span>CRM</span>
-                        <span class="legend-chip"><span class="sw" style="background:#0891b2"></span>LP</span>
+                        <span class="legend-chip"><span class="sw" style="background:#059669"></span>イベント</span>
+                        <span class="legend-chip"><span class="sw" style="background:#7c3aed"></span>LP公開</span>
                     </div>
                 </div>
             </section>
@@ -216,25 +207,147 @@
                 </div>
             </section>
 
-            <!-- 媒体別 -->
+            <!-- 媒体別内訳 -->
             <section class="dashboard-section">
-                <h2 class="section-title"><ion-icon name="layers-outline"></ion-icon> 媒体別 内訳</h2>
-
-                <div class="charts-container mb-section">
-                    <div class="chart-card glass-panel wide-chart">
-                        <h3>媒体別セッション推移 (積み上げ)</h3>
-                        <div class="canvas-wrapper" style="height: 340px;"><canvas id="chart-media-sessions"></canvas></div>
-                    </div>
-                </div>
-
-                <div class="chart-wrapper-flex" style="margin-top: 24px;">
+                <h2 class="section-title"><ion-icon name="pie-chart-outline"></ion-icon> 媒体別 内訳 (構成比)</h2>
+                <div class="chart-wrapper-flex">
                     <div class="chart-card glass-panel half-chart">
                         <h3>媒体別UU構成比</h3>
                         <div class="canvas-wrapper"><canvas id="chart-media-uu"></canvas></div>
                     </div>
                     <div class="chart-card glass-panel half-chart">
-                        <h3>媒体別CVR (今月 vs 前月)</h3>
-                        <div class="canvas-wrapper"><canvas id="chart-media-cvr"></canvas></div>
+                        <h3>構成比の内訳 (UU数と%)</h3>
+                        <ul class="share-list">
+                            <li>
+                                <span class="share-label"><span class="share-dot" style="background:#2563eb"></span>自然検索</span>
+                                <span class="share-value"><span class="share-num">194,336 UU</span><span class="share-pct">28.4%</span></span>
+                            </li>
+                            <li>
+                                <span class="share-label"><span class="share-dot" style="background:#7c3aed"></span>広告</span>
+                                <span class="share-value"><span class="share-num">154,648 UU</span><span class="share-pct">22.6%</span></span>
+                            </li>
+                            <li>
+                                <span class="share-label"><span class="share-dot" style="background:#059669"></span>SNS</span>
+                                <span class="share-value"><span class="share-num">124,539 UU</span><span class="share-pct">18.2%</span></span>
+                            </li>
+                            <li>
+                                <span class="share-label"><span class="share-dot" style="background:#f59e0b"></span>CRM</span>
+                                <span class="share-value"><span class="share-num">87,588 UU</span><span class="share-pct">12.8%</span></span>
+                            </li>
+                            <li>
+                                <span class="share-label"><span class="share-dot" style="background:#64748b"></span>直接流入</span>
+                                <span class="share-value"><span class="share-num">65,691 UU</span><span class="share-pct">9.6%</span></span>
+                            </li>
+                            <li>
+                                <span class="share-label"><span class="share-dot" style="background:#0891b2"></span>リファラル</span>
+                                <span class="share-value"><span class="share-num">57,479 UU</span><span class="share-pct">8.4%</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 媒体別 指標テーブル -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="grid-outline"></ion-icon> 媒体別 指標 (指定期間)</h2>
+                <div class="table-card glass-panel">
+                    <div class="table-responsive">
+                        <table class="media-metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>媒体</th>
+                                    <th>コスト</th>
+                                    <th>インプレッション</th>
+                                    <th>クリック数</th>
+                                    <th>クリック率</th>
+                                    <th>CPC</th>
+                                    <th>CV</th>
+                                    <th>CVR</th>
+                                    <th>CPA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#2563eb"></span>自然検索</span></td>
+                                    <td>¥0</td>
+                                    <td>—</td>
+                                    <td>421,280</td>
+                                    <td>—</td>
+                                    <td>¥0</td>
+                                    <td>13,481</td>
+                                    <td>3.20%</td>
+                                    <td>¥0</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>広告</span></td>
+                                    <td>¥8,420,000</td>
+                                    <td>12,482,600</td>
+                                    <td>334,860</td>
+                                    <td>2.68%</td>
+                                    <td>¥25</td>
+                                    <td>7,033</td>
+                                    <td>2.10%</td>
+                                    <td>¥1,197</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#059669"></span>SNS</span></td>
+                                    <td>¥1,240,000</td>
+                                    <td>6,840,000</td>
+                                    <td>269,840</td>
+                                    <td>3.94%</td>
+                                    <td>¥5</td>
+                                    <td>3,778</td>
+                                    <td>1.40%</td>
+                                    <td>¥328</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>CRM</span></td>
+                                    <td>¥620,000</td>
+                                    <td>4,286,000</td>
+                                    <td>189,700</td>
+                                    <td>4.43%</td>
+                                    <td>¥3</td>
+                                    <td>11,117</td>
+                                    <td>5.86%</td>
+                                    <td>¥56</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#64748b"></span>直接流入</span></td>
+                                    <td>¥0</td>
+                                    <td>—</td>
+                                    <td>142,380</td>
+                                    <td>—</td>
+                                    <td>¥0</td>
+                                    <td>5,980</td>
+                                    <td>4.20%</td>
+                                    <td>¥0</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#0891b2"></span>リファラル</span></td>
+                                    <td>¥0</td>
+                                    <td>—</td>
+                                    <td>124,580</td>
+                                    <td>—</td>
+                                    <td>¥0</td>
+                                    <td>3,239</td>
+                                    <td>2.60%</td>
+                                    <td>¥0</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>合計</td>
+                                    <td>¥10,280,000</td>
+                                    <td>23,608,600</td>
+                                    <td>1,482,640</td>
+                                    <td>3.04%</td>
+                                    <td>¥7</td>
+                                    <td>44,628</td>
+                                    <td>3.01%</td>
+                                    <td>¥230</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
 
@@ -243,10 +356,10 @@
                     <div class="insight-body">
                         <div class="insight-title">媒体別 改善ポイント <span class="tag warn">要改善</span></div>
                         <ul>
-                            <li><strong>CRM(UU比12.8%) のCVRが5.8%と最高値</strong>。送信頻度を+1回/週に拡大する効果検証を推奨。</li>
-                            <li><strong>SNS経由CVRは1.4%と最も低い</strong>。認知フェーズとしては健全だがLP側の計測タグ最適化・態度変容コンテンツ強化で2.0%超を狙える。</li>
-                            <li><strong>広告流入のCVRは2.4%→2.1%に低下</strong>。クリエイティブ疲弊の兆候があり、A/B枠でリフレッシュを実施。</li>
-                            <li>自然検索セッションが <strong>+18.2%</strong> と好調。SEO流入ページのCTAボタン改善で更なるCVR押上余地。</li>
+                            <li><strong>CRM(UU比12.8%) のCVRが5.86%と最高値</strong>、CPAも¥56と圧倒的な効率。送信頻度を+1回/週に拡大する効果検証を推奨。</li>
+                            <li><strong>SNS経由CVRは1.40%と最も低い</strong>。認知フェーズとしては健全だがLP側の計測タグ最適化・態度変容コンテンツ強化で2.0%超を狙える。</li>
+                            <li><strong>広告流入のCVRは2.10%、CPA ¥1,197</strong>。ROAS維持のためクリエイティブ疲弊対策(A/B切替)を継続実施。</li>
+                            <li>自然検索UUが <strong>全体の28.4%</strong> と最大。SEO流入ページのCTAボタン改善で更なるCVR押上余地あり。</li>
                         </ul>
                     </div>
                 </div>

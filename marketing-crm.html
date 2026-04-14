@@ -61,6 +61,22 @@
                 <a href="marketing-crm.html" class="active">5. CRM施策</a>
             </div>
 
+            <!-- 期間指定 -->
+            <div class="date-range-bar">
+                <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 期間</span>
+                <div class="drb-preset-group">
+                    <button>過去7日</button>
+                    <button>過去30日</button>
+                    <button class="active">今月</button>
+                    <button>先月</button>
+                    <button>今年</button>
+                </div>
+                <input type="date" value="2026-04-01">
+                <span class="drb-sep">〜</span>
+                <input type="date" value="2026-04-30">
+                <button class="drb-apply">適用</button>
+            </div>
+
             <!-- CRM KPI -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="mail-outline"></ion-icon> CRM施策 サマリー</h2>
@@ -151,67 +167,95 @@
                 </div>
             </section>
 
-            <!-- CRM媒体別セッション -->
+            <!-- CRM媒体別 指標テーブル -->
             <section class="dashboard-section">
-                <h2 class="section-title"><ion-icon name="trending-up-outline"></ion-icon> CRM媒体別 セッション推移</h2>
-                <div class="chart-card glass-panel wide-chart">
-                    <div class="canvas-wrapper" style="height: 360px;"><canvas id="chart-crm-sessions"></canvas></div>
-                </div>
-                <div class="insight-box" style="margin-top: 24px;">
-                    <ion-icon name="bulb-outline" class="insight-icon"></ion-icon>
-                    <div class="insight-body">
-                        <div class="insight-title">CRMセッション コメント <span class="tag good">好調</span></div>
-                        <ul>
-                            <li><strong>LINE公式</strong>: 配信日直後の流入ピークが顕著。クーポン配信 (4/18) で単日 <strong>21,600セッション</strong> を記録。</li>
-                            <li><strong>メルマガ</strong>: 週2配信でベース流入を安定確保。「会員限定セール予告」の配信タイトルでA/B勝率60%。</li>
-                            <li><strong>アプリプッシュ</strong>: カート離脱パーソナライズ配信 (4/10-) で CVR 5.8%、通常プッシュの1.4倍の効率。</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CRM UU -->
-            <section class="dashboard-section">
-                <h2 class="section-title"><ion-icon name="people-outline"></ion-icon> CRM媒体別 UU (開封・クリック)</h2>
-                <div class="chart-card glass-panel wide-chart">
-                    <div class="canvas-wrapper" style="height: 320px;"><canvas id="chart-crm-uu"></canvas></div>
-                </div>
-
-                <div class="insight-box" style="margin-top: 24px;">
-                    <ion-icon name="analytics-outline" class="insight-icon"></ion-icon>
-                    <div class="insight-body">
-                        <div class="insight-title">CRM UU 分析 <span class="tag">Insight</span></div>
-                        <ul>
-                            <li><strong>LINE公式UU 68,200</strong> でCRMチャネル最大。友だち数 182万に対し 到達率 37%、開封率 42%と高水準。</li>
-                            <li><strong>メルマガUU 52,400</strong>: 登録ベースに対し開封率 22.4%。件名のパーソナライズ化でさらに+3pt可能。</li>
-                            <li><strong>Webプッシュ UU 18,600</strong>: オプトイン率 18% に留まるため、離脱前のソフト許諾UIを検討。</li>
-                            <li><strong>SMS UU 12,400</strong>: VIP限定配信のためUUは少ないがCVRへの貢献大。</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CRM CVR -->
-            <section class="dashboard-section">
-                <h2 class="section-title"><ion-icon name="swap-vertical-outline"></ion-icon> CRM媒体別 CVR</h2>
-                <div class="chart-card glass-panel wide-chart">
-                    <div class="canvas-wrapper" style="height: 340px;"><canvas id="chart-crm-cvr"></canvas></div>
-                </div>
-
-                <div class="table-card glass-panel" style="margin-top: 24px;">
-                    <h3>CRM媒体別 パフォーマンス</h3>
+                <h2 class="section-title"><ion-icon name="grid-outline"></ion-icon> CRM媒体別 指標 (指定期間)</h2>
+                <div class="table-card glass-panel">
                     <div class="table-responsive">
-                        <table class="data-table compact-table">
+                        <table class="media-metrics-table">
                             <thead>
-                                <tr><th>#</th><th>チャネル</th><th>配信通数</th><th>開封/到達</th><th>クリック率</th><th>UU</th><th>CVR</th><th>売上</th><th>前月比</th></tr>
+                                <tr>
+                                    <th>チャネル</th>
+                                    <th>コスト</th>
+                                    <th>インプレッション</th>
+                                    <th>クリック数</th>
+                                    <th>クリック率</th>
+                                    <th>CPC</th>
+                                    <th>CV</th>
+                                    <th>CVR</th>
+                                    <th>CPA</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td><span class="rank-cell gold">1</span></td><td>LINE公式</td><td>1,820,000</td><td>42.0%</td><td>8.8%</td><td>68,200</td><td>8.2%</td><td>¥22,480,000</td><td class="trend-up">▲ +0.6pt</td></tr>
-                                <tr><td><span class="rank-cell silver">2</span></td><td>メルマガ</td><td>1,948,000</td><td>22.4%</td><td>4.6%</td><td>52,400</td><td>6.4%</td><td>¥14,860,000</td><td class="trend-up">▲ +0.6pt</td></tr>
-                                <tr><td><span class="rank-cell bronze">3</span></td><td>アプリプッシュ</td><td>342,000</td><td>54.8%</td><td>16.2%</td><td>44,800</td><td>5.1%</td><td>¥9,820,000</td><td class="trend-up">▲ +0.3pt</td></tr>
-                                <tr><td><span class="rank-cell">4</span></td><td>Webプッシュ</td><td>148,000</td><td>38.2%</td><td>10.4%</td><td>18,600</td><td>3.2%</td><td>¥2,480,000</td><td class="trend-up">▲ +0.3pt</td></tr>
-                                <tr><td><span class="rank-cell">5</span></td><td>SMS</td><td>28,000</td><td>92.4%</td><td>14.8%</td><td>12,400</td><td>2.4%</td><td>¥1,280,000</td><td class="trend-down">▼ -0.2pt</td></tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td>¥180,000</td>
+                                    <td>1,948,000</td>
+                                    <td>89,608</td>
+                                    <td>4.60%</td>
+                                    <td>¥2</td>
+                                    <td>5,735</td>
+                                    <td>6.40%</td>
+                                    <td>¥31</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
+                                    <td>¥280,000</td>
+                                    <td>1,820,000</td>
+                                    <td>160,160</td>
+                                    <td>8.80%</td>
+                                    <td>¥2</td>
+                                    <td>13,133</td>
+                                    <td>8.20%</td>
+                                    <td>¥21</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span></td>
+                                    <td>¥80,000</td>
+                                    <td>342,000</td>
+                                    <td>55,404</td>
+                                    <td>16.20%</td>
+                                    <td>¥1</td>
+                                    <td>2,826</td>
+                                    <td>5.10%</td>
+                                    <td>¥28</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#0891b2"></span>Webプッシュ</span></td>
+                                    <td>¥40,000</td>
+                                    <td>148,000</td>
+                                    <td>15,392</td>
+                                    <td>10.40%</td>
+                                    <td>¥3</td>
+                                    <td>493</td>
+                                    <td>3.20%</td>
+                                    <td>¥81</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#dc2626"></span>SMS</span></td>
+                                    <td>¥40,000</td>
+                                    <td>28,000</td>
+                                    <td>4,144</td>
+                                    <td>14.80%</td>
+                                    <td>¥10</td>
+                                    <td>99</td>
+                                    <td>2.40%</td>
+                                    <td>¥404</td>
+                                </tr>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>合計</td>
+                                    <td>¥620,000</td>
+                                    <td>4,286,000</td>
+                                    <td>324,708</td>
+                                    <td>7.58%</td>
+                                    <td>¥2</td>
+                                    <td>22,286</td>
+                                    <td>6.86%</td>
+                                    <td>¥28</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -221,11 +265,11 @@
                     <div class="insight-body">
                         <div class="insight-title">CRM 改善ポイント <span class="tag warn">要改善</span></div>
                         <ul>
-                            <li><strong>LINE公式 CVR 8.2%</strong>: 売上貢献2,248万円と最大。ただし到達率37%のため未到達セグメントへのWEB/アプリ送客連携を強化。</li>
-                            <li><strong>メルマガ</strong>: 件名長30字以内 × 絵文字利用で開封率 +3pt検証中。セール予告の配信時刻(朝7時)が最も効果的。</li>
-                            <li><strong>アプリプッシュ</strong>: 開封率 54.8% は高水準。カート離脱 / 価格改定 / 再入荷の3トリガーを動的配信に拡張予定。</li>
-                            <li><strong>SMS CVR -0.2pt低下</strong>: VIP向け文面のマンネリ化が疑われる。限定クーポン + 個別担当者署名形式への変更を推奨。</li>
-                            <li><strong>全体のリピート購入率は +5.6pt改善</strong>。CRM → SNS (LINE)への相互送客フロー(LP起点)で更なる上乗せ余地。</li>
+                            <li><strong>LINE公式 CVR 8.20% / CPA ¥21</strong>: 売上貢献最大。到達率37%のため未到達セグメントへのWEB/アプリ送客連携を強化。</li>
+                            <li><strong>メルマガ CTR 4.60%、CVR 6.40%</strong>: 件名長30字以内 × 絵文字利用で開封率 +3pt検証中。朝7時配信が最効果。</li>
+                            <li><strong>アプリプッシュ CTR 16.20%</strong>: 3トリガー(カート離脱 / 価格改定 / 再入荷)の動的配信に拡張予定。</li>
+                            <li><strong>SMS CVR 2.40% (低下傾向)</strong>: VIP向け文面のマンネリ化。限定クーポン + 個別担当者署名形式への変更を推奨。</li>
+                            <li>リピート購入率は <strong>+5.6pt改善</strong>。CRM→SNS(LINE)への相互送客フローで更なる上乗せ余地あり。</li>
                         </ul>
                     </div>
                 </div>

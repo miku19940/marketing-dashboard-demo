@@ -79,6 +79,22 @@
                 <a href="marketing-crm.html">5. CRM施策</a>
             </div>
 
+            <!-- 期間指定 -->
+            <div class="date-range-bar">
+                <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 期間</span>
+                <div class="drb-preset-group">
+                    <button>過去7日</button>
+                    <button>過去30日</button>
+                    <button class="active">今月</button>
+                    <button>先月</button>
+                    <button>今年</button>
+                </div>
+                <input type="date" value="2026-04-01">
+                <span class="drb-sep">〜</span>
+                <input type="date" value="2026-04-30">
+                <button class="drb-apply">適用</button>
+            </div>
+
             <!-- 売上セクション -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="cash-outline"></ion-icon> 売上サマリー</h2>
@@ -159,12 +175,14 @@
             <!-- プロパー/セール -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="pricetag-outline"></ion-icon> プロパー / セール購入比率</h2>
-                <div class="chart-wrapper-flex">
-                    <div class="chart-card glass-panel half-chart">
-                        <h3>購入金額構成</h3>
-                        <div class="canvas-wrapper pie-wrapper"><canvas id="chart-price-ratio"></canvas></div>
+                <div class="charts-container mb-section">
+                    <div class="chart-card glass-panel wide-chart">
+                        <h3>日別 購入金額構成 (プロパー / セール)</h3>
+                        <div class="canvas-wrapper" style="height: 340px;"><canvas id="chart-price-daily"></canvas></div>
                     </div>
-                    <div class="chart-card glass-panel half-chart">
+                </div>
+                <div class="charts-container mb-section" style="margin-top: 24px;">
+                    <div class="chart-card glass-panel wide-chart">
                         <h3>LTV推移 (年次比較)</h3>
                         <div class="canvas-wrapper"><canvas id="chart-ltv"></canvas></div>
                     </div>
