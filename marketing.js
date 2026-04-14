@@ -76,34 +76,27 @@ MKT.seriesSeeded = (seed, length, base, amp) => {
 MKT.initPage1 = function() {
     const labels = MKT.dateLabels(30);
 
-    // 日別売上グラフ
+    // 日別売上 棒グラフ
     const salesCtx = document.getElementById('chart-daily-sales');
     if (salesCtx) {
         new Chart(salesCtx, {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels,
                 datasets: [
                     {
                         label: '今月売上',
                         data: MKT.seriesSeeded(4, 30, 1850000, 600000),
-                        borderColor: MKT.palette.blue,
-                        backgroundColor: MKT.gradient(salesCtx.getContext('2d'), MKT.palette.blue),
-                        fill: true,
-                        tension: 0.3,
-                        borderWidth: 2,
-                        pointRadius: 2
+                        backgroundColor: MKT.palette.blue,
+                        borderRadius: 4,
+                        borderSkipped: false
                     },
                     {
                         label: '前月売上',
                         data: MKT.seriesSeeded(8, 30, 1650000, 500000),
-                        borderColor: MKT.palette.slate,
-                        borderDash: [6, 4],
-                        backgroundColor: 'transparent',
-                        fill: false,
-                        tension: 0.3,
-                        borderWidth: 2,
-                        pointRadius: 0
+                        backgroundColor: MKT.palette.slate + '88',
+                        borderRadius: 4,
+                        borderSkipped: false
                     }
                 ]
             },
@@ -113,6 +106,14 @@ MKT.initPage1 = function() {
                 scales: {
                     y: {
                         ticks: { callback: (v) => '¥' + (v/10000).toFixed(0) + '万' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.dataset.label + ': ' + MKT.fmtYen(ctx.raw)
+                        }
                     }
                 }
             }
@@ -298,17 +299,29 @@ MKT.initPage2 = function() {
                         data: MKT.seriesSeeded(12, 30, 48000, 14000),
                         borderColor: MKT.palette.blue,
                         backgroundColor: MKT.gradient(sesCtx.getContext('2d'), MKT.palette.blue),
-                        fill: true, tension: 0.3, borderWidth: 2, pointRadius: 0
+                        fill: true, tension: 0.3, borderWidth: 2,
+                        pointRadius: 3, pointHoverRadius: 6, pointBackgroundColor: MKT.palette.blue
                     },
                     {
                         label: '前月セッション',
                         data: MKT.seriesSeeded(18, 30, 42000, 12000),
                         borderColor: MKT.palette.slate,
-                        borderDash: [6, 4], fill: false, tension: 0.3, borderWidth: 2, pointRadius: 0
+                        borderDash: [6, 4], fill: false, tension: 0.3, borderWidth: 2,
+                        pointRadius: 3, pointHoverRadius: 6, pointBackgroundColor: MKT.palette.slate
                     }
                 ]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.dataset.label + ': ' + MKT.fmtNum(ctx.raw) + ' セッション'
+                        }
+                    }
+                }
+            }
         });
     }
 
@@ -325,18 +338,30 @@ MKT.initPage2 = function() {
                         data: MKT.seriesSeeded(22, 30, 8500, 3200),
                         borderColor: MKT.palette.purple,
                         backgroundColor: MKT.palette.purple + '22',
-                        fill: true, tension: 0.3, borderWidth: 2, pointRadius: 0
+                        fill: true, tension: 0.3, borderWidth: 2,
+                        pointRadius: 3, pointHoverRadius: 6, pointBackgroundColor: MKT.palette.purple
                     },
                     {
                         label: 'リピートUU',
                         data: MKT.seriesSeeded(30, 30, 14200, 3800),
                         borderColor: MKT.palette.green,
                         backgroundColor: MKT.palette.green + '22',
-                        fill: true, tension: 0.3, borderWidth: 2, pointRadius: 0
+                        fill: true, tension: 0.3, borderWidth: 2,
+                        pointRadius: 3, pointHoverRadius: 6, pointBackgroundColor: MKT.palette.green
                     }
                 ]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.dataset.label + ': ' + MKT.fmtNum(ctx.raw) + ' UU'
+                        }
+                    }
+                }
+            }
         });
     }
 
@@ -349,18 +374,27 @@ MKT.initPage2 = function() {
                 labels,
                 datasets: [
                     {
-                        label: 'CVR (%)',
+                        label: 'CVR',
                         data: MKT.seriesSeeded(44, 30, 2.4, 1.2).map(v => Number((v).toFixed(2))),
                         borderColor: MKT.palette.amber,
                         backgroundColor: MKT.palette.amber + '22',
-                        fill: true, tension: 0.3, borderWidth: 2, pointRadius: 2
+                        fill: true, tension: 0.3, borderWidth: 2,
+                        pointRadius: 3, pointHoverRadius: 6, pointBackgroundColor: MKT.palette.amber
                     }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                scales: { y: { ticks: { callback: (v) => v + '%' }, suggestedMin: 0 } }
+                interaction: { intersect: false, mode: 'index' },
+                scales: { y: { ticks: { callback: (v) => v + '%' }, suggestedMin: 0 } },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ctx.dataset.label + ': ' + ctx.raw.toFixed(2) + '%'
+                        }
+                    }
+                }
             }
         });
     }

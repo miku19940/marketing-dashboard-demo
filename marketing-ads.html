@@ -61,7 +61,7 @@
                 <a href="marketing-crm.html">5. CRM施策</a>
             </div>
 
-            <!-- 期間指定 -->
+            <!-- 期間指定 (ページ上部) -->
             <div class="date-range-bar">
                 <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 期間</span>
                 <div class="drb-preset-group">
@@ -114,13 +114,13 @@
                 </div>
             </section>
 
-            <!-- 広告スケジュール -->
+            <!-- 広告スケジュール (固定左列) -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="calendar-outline"></ion-icon> 広告施策スケジュール (2026年4月)</h2>
                 <div class="schedule-card glass-panel">
                     <div class="schedule-wrapper">
                         <div class="schedule-grid schedule-grid-fine">
-                            <div class="sg-header label-col">媒体</div>
+                            <div class="sg-header label-col">媒体・キャンペーン</div>
                             <div class="sg-header">1</div><div class="sg-header">2</div><div class="sg-header">3</div>
                             <div class="sg-header">4</div><div class="sg-header">5</div><div class="sg-header">6</div>
                             <div class="sg-header">7</div><div class="sg-header">8</div><div class="sg-header">9</div>
@@ -132,20 +132,32 @@
                             <div class="sg-header">25</div><div class="sg-header">26</div><div class="sg-header">27</div>
                             <div class="sg-header">28</div><div class="sg-header">29</div><div class="sg-header">30</div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#2563eb"></span>Google広告</div>
+                            <!-- Google P-MAX -->
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#2563eb"></span>Google広告</span>
+                                <span class="secondary">P-MAX / 検索 / ショッピング</span>
+                            </div>
                             <div class="sg-cell" style="grid-column: 2 / span 30;">
-                                <div class="sg-bar ads" style="left:0%; right:0%;">P-MAX / 検索 / ショッピング (常時)</div>
+                                <div class="sg-bar ads" style="left:0%; right:0%;">常時配信</div>
                             </div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#dc2626"></span>Yahoo!広告</div>
+                            <!-- Yahoo! search -->
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#dc2626"></span>Yahoo!広告</span>
+                                <span class="secondary">検索連動ブランドKW</span>
+                            </div>
                             <div class="sg-cell" style="grid-column: 2 / span 15;">
-                                <div class="sg-bar ads" style="left:0%; right:0%;">検索連動 ブランドキーワード</div>
+                                <div class="sg-bar ads" style="left:0%; right:0%;">ブランドKW</div>
                             </div>
                             <div class="sg-cell" style="grid-column: 18 / span 10;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">GW刈取</div>
                             </div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#4f46e5"></span>Meta広告 (Instagram/FB)</div>
+                            <!-- Meta Advantage+ -->
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#4f46e5"></span>Meta広告</span>
+                                <span class="secondary">Instagram / Facebook</span>
+                            </div>
                             <div class="sg-cell" style="grid-column: 2 / span 13;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">春SS Advantage+ Shopping</div>
                             </div>
@@ -153,7 +165,11 @@
                                 <div class="sg-bar ads" style="left:0%; right:0%;">GWセール Reels配信</div>
                             </div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#059669"></span>LINE広告</div>
+                            <!-- LINE -->
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#059669"></span>LINE広告</span>
+                                <span class="secondary">タイムライン / VOOM</span>
+                            </div>
                             <div class="sg-cell" style="grid-column: 5 / span 10;">
                                 <div class="sg-bar ads" style="left:0%; right:0%;">友だち追加促進</div>
                             </div>
@@ -161,23 +177,48 @@
                                 <div class="sg-bar ads" style="left:0%; right:0%;">セール刈取</div>
                             </div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#f59e0b"></span>Criteo (DRT)</div>
+                            <!-- Criteo -->
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#f59e0b"></span>Criteo</span>
+                                <span class="secondary">DRT / リターゲティング</span>
+                            </div>
                             <div class="sg-cell" style="grid-column: 2 / span 30;">
-                                <div class="sg-bar ads" style="left:0%; right:0%;">カート離脱リターゲティング (常時)</div>
+                                <div class="sg-bar ads" style="left:0%; right:0%;">カート離脱リターゲ (常時)</div>
                             </div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#ec4899"></span>TikTok Ads</div>
+                            <!-- TikTok -->
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#ec4899"></span>TikTok Ads</span>
+                                <span class="secondary">Spark Ads / In-Feed</span>
+                            </div>
                             <div class="sg-cell" style="grid-column: 8 / span 12;">
-                                <div class="sg-bar ads" style="left:0%; right:0%;">Spark Ads クリエイター配信</div>
+                                <div class="sg-bar ads" style="left:0%; right:0%;">クリエイター配信</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 広告媒体別 指標テーブル -->
+            <!-- 広告媒体別 指標テーブル (+期間選択) -->
             <section class="dashboard-section">
-                <h2 class="section-title"><ion-icon name="grid-outline"></ion-icon> 広告媒体別 指標 (指定期間)</h2>
+                <h2 class="section-title"><ion-icon name="grid-outline"></ion-icon> 広告媒体別 指標</h2>
+
+                <!-- セクション内の期間指定 -->
+                <div class="date-range-bar inline-sub">
+                    <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 指標期間</span>
+                    <div class="drb-preset-group">
+                        <button>過去7日</button>
+                        <button>過去30日</button>
+                        <button class="active">今月</button>
+                        <button>先月</button>
+                        <button>今年</button>
+                    </div>
+                    <input type="date" value="2026-04-01">
+                    <span class="drb-sep">〜</span>
+                    <input type="date" value="2026-04-30">
+                    <button class="drb-apply">適用</button>
+                </div>
+
                 <div class="table-card glass-panel">
                     <div class="table-responsive">
                         <table class="media-metrics-table">
@@ -278,16 +319,156 @@
                         </table>
                     </div>
                 </div>
+            </section>
+
+            <!-- 媒体 × キャンペーン別 内訳 -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="albums-outline"></ion-icon> 媒体別 キャンペーンごとの実績</h2>
+
+                <!-- Google広告 -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#2563eb"></span>Google広告</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">3キャンペーン稼働中</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>キャンペーン</th>
+                                        <th>コスト</th>
+                                        <th>IMP</th>
+                                        <th>クリック</th>
+                                        <th>CTR</th>
+                                        <th>CPC</th>
+                                        <th>CV</th>
+                                        <th>CVR</th>
+                                        <th>CPA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>P-MAX ブランド</td><td>¥1,280,000</td><td>2,180,000</td><td>54,200</td><td>2.49%</td><td>¥24</td><td>1,626</td><td>3.00%</td><td>¥787</td></tr>
+                                    <tr><td>検索連動 一般KW</td><td>¥1,080,000</td><td>1,620,000</td><td>42,400</td><td>2.62%</td><td>¥25</td><td>1,060</td><td>2.50%</td><td>¥1,019</td></tr>
+                                    <tr><td>ショッピング広告</td><td>¥720,000</td><td>1,020,000</td><td>28,800</td><td>2.82%</td><td>¥25</td><td>825</td><td>2.86%</td><td>¥873</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meta広告 -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#4f46e5"></span>Meta広告 (Instagram/FB)</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">2キャンペーン稼働中</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr><th>キャンペーン</th><th>コスト</th><th>IMP</th><th>クリック</th><th>CTR</th><th>CPC</th><th>CV</th><th>CVR</th><th>CPA</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>春SS Advantage+ Shopping</td><td>¥920,000</td><td>1,980,000</td><td>42,400</td><td>2.14%</td><td>¥22</td><td>890</td><td>2.10%</td><td>¥1,034</td></tr>
+                                    <tr><td>GWセール Reels配信</td><td>¥700,000</td><td>1,300,000</td><td>30,000</td><td>2.31%</td><td>¥23</td><td>486</td><td>1.62%</td><td>¥1,440</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yahoo!広告 -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#dc2626"></span>Yahoo!広告</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">2キャンペーン稼働中</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr><th>キャンペーン</th><th>コスト</th><th>IMP</th><th>クリック</th><th>CTR</th><th>CPC</th><th>CV</th><th>CVR</th><th>CPA</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>検索連動 ブランドKW</td><td>¥740,000</td><td>1,020,000</td><td>36,400</td><td>3.57%</td><td>¥20</td><td>892</td><td>2.45%</td><td>¥829</td></tr>
+                                    <tr><td>GW刈取 一般KW</td><td>¥500,000</td><td>800,000</td><td>21,900</td><td>2.74%</td><td>¥23</td><td>332</td><td>1.52%</td><td>¥1,506</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LINE広告 -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#059669"></span>LINE広告</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">2キャンペーン稼働中</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr><th>キャンペーン</th><th>コスト</th><th>IMP</th><th>クリック</th><th>CTR</th><th>CPC</th><th>CV</th><th>CVR</th><th>CPA</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>友だち追加促進</td><td>¥540,000</td><td>680,000</td><td>22,400</td><td>3.29%</td><td>¥24</td><td>628</td><td>2.80%</td><td>¥860</td></tr>
+                                    <tr><td>セール刈取</td><td>¥440,000</td><td>560,000</td><td>16,200</td><td>2.89%</td><td>¥27</td><td>376</td><td>2.32%</td><td>¥1,170</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Criteo -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>Criteo</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">1キャンペーン稼働中</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr><th>キャンペーン</th><th>コスト</th><th>IMP</th><th>クリック</th><th>CTR</th><th>CPC</th><th>CV</th><th>CVR</th><th>CPA</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>カート離脱リターゲ</td><td>¥1,120,000</td><td>680,000</td><td>24,600</td><td>3.62%</td><td>¥46</td><td>836</td><td>3.40%</td><td>¥1,340</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok Ads -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#ec4899"></span>TikTok Ads</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">1キャンペーン稼働中</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr><th>キャンペーン</th><th>コスト</th><th>IMP</th><th>クリック</th><th>CTR</th><th>CPC</th><th>CV</th><th>CVR</th><th>CPA</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Spark Ads クリエイター</td><td>¥380,000</td><td>642,600</td><td>15,560</td><td>2.42%</td><td>¥24</td><td>202</td><td>1.30%</td><td>¥1,881</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="insight-box" style="margin-top: 24px;">
                     <ion-icon name="flash-outline" class="insight-icon"></ion-icon>
                     <div class="insight-body">
                         <div class="insight-title">広告 改善ポイント <span class="tag warn">要改善</span></div>
                         <ul>
-                            <li><strong>Meta広告 CVR 1.9% (前月比-0.22pt)</strong>: クリエイティブ疲弊。4/25〜 Reels縦型動画×UGC活用の新セットで改善を検証。</li>
-                            <li><strong>Yahoo!広告 CVRも低下傾向</strong>: 一般指名KWのマッチタイプ見直し、除外KW追加で無駄クリックを削減。</li>
-                            <li><strong>TikTok Ads はCVR低いがCPCが最安レベル</strong>: 認知〜興味の役割を担っているため、LP側にフォーム簡略化・カート直送導線を追加してCVR改善。</li>
-                            <li><strong>Criteo の CVR 3.4% は最高</strong>: ROAS最大化のため予算+20%増枠で刈取拡大余地。</li>
+                            <li><strong>Meta広告 GWセール Reels配信の CVR 1.62%</strong> が同媒体内で最低。クリエイティブA/Bで早期切替を実施。</li>
+                            <li><strong>Yahoo! GW刈取の CVR 1.52% / CPA ¥1,506</strong>: 除外KW見直し/一般指名切り分けで効率改善を検証。</li>
+                            <li><strong>Criteo は CVR 3.40% で最高</strong>: 予算+20%増枠で刈取拡大余地。</li>
+                            <li><strong>TikTok Ads は CVR 1.30%</strong> 低めだがCPC¥24と安価。LP最適化でCVR改善すればCPA効率化可能。</li>
                         </ul>
                     </div>
                 </div>

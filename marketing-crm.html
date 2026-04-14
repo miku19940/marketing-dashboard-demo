@@ -114,13 +114,13 @@
                 </div>
             </section>
 
-            <!-- CRM スケジュール -->
+            <!-- CRM スケジュール (固定左列+小カテゴリ) -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="calendar-outline"></ion-icon> 既存顧客向け施策スケジュール (2026年4月)</h2>
                 <div class="schedule-card glass-panel">
                     <div class="schedule-wrapper">
                         <div class="schedule-grid schedule-grid-fine">
-                            <div class="sg-header label-col">チャネル</div>
+                            <div class="sg-header label-col">チャネル・配信内容</div>
                             <div class="sg-header">1</div><div class="sg-header">2</div><div class="sg-header">3</div>
                             <div class="sg-header">4</div><div class="sg-header">5</div><div class="sg-header">6</div>
                             <div class="sg-header">7</div><div class="sg-header">8</div><div class="sg-header">9</div>
@@ -132,44 +132,72 @@
                             <div class="sg-header">25</div><div class="sg-header">26</div><div class="sg-header">27</div>
                             <div class="sg-header">28</div><div class="sg-header">29</div><div class="sg-header">30</div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#f59e0b"></span>メルマガ</div>
-                            <div class="sg-cell" style="grid-column: 3 / span 2;"><div class="sg-bar crm">新作入荷</div></div>
-                            <div class="sg-cell" style="grid-column: 9 / span 2;"><div class="sg-bar crm">コーデ提案</div></div>
-                            <div class="sg-cell" style="grid-column: 16 / span 2;"><div class="sg-bar crm">特別会員</div></div>
-                            <div class="sg-cell" style="grid-column: 20 / span 2;"><div class="sg-bar crm">GW予告</div></div>
-                            <div class="sg-cell" style="grid-column: 24 / span 2;"><div class="sg-bar crm">リマ</div></div>
-                            <div class="sg-cell" style="grid-column: 28 / span 2;"><div class="sg-bar crm">最終日</div></div>
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#f59e0b"></span>メルマガ</span>
+                                <span class="secondary">HTMLメール / セグメント配信</span>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 3 / span 1;"><div class="sg-bar crm">新作入荷</div></div>
+                            <div class="sg-cell" style="grid-column: 9 / span 1;"><div class="sg-bar crm">コーデ提案</div></div>
+                            <div class="sg-cell" style="grid-column: 16 / span 1;"><div class="sg-bar crm">特別会員</div></div>
+                            <div class="sg-cell" style="grid-column: 20 / span 1;"><div class="sg-bar crm">GW予告</div></div>
+                            <div class="sg-cell" style="grid-column: 24 / span 1;"><div class="sg-bar crm">リマインド</div></div>
+                            <div class="sg-cell" style="grid-column: 28 / span 1;"><div class="sg-bar crm">最終日</div></div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#06c755"></span>LINE公式</div>
-                            <div class="sg-cell" style="grid-column: 5 / span 2;"><div class="sg-bar sns">セグA</div></div>
-                            <div class="sg-cell" style="grid-column: 12 / span 2;"><div class="sg-bar sns">ステップ1</div></div>
-                            <div class="sg-cell" style="grid-column: 18 / span 2;"><div class="sg-bar sns">クーポン</div></div>
-                            <div class="sg-cell" style="grid-column: 23 / span 2;"><div class="sg-bar sns">GW本番</div></div>
-                            <div class="sg-cell" style="grid-column: 29 / span 2;"><div class="sg-bar sns">ラスト</div></div>
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#06c755"></span>LINE公式</span>
+                                <span class="secondary">メッセージ配信 / リッチメニュー</span>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 5 / span 1;"><div class="sg-bar sns">セグA 新作</div></div>
+                            <div class="sg-cell" style="grid-column: 12 / span 1;"><div class="sg-bar sns">ステップ1</div></div>
+                            <div class="sg-cell" style="grid-column: 18 / span 1;"><div class="sg-bar sns">クーポン</div></div>
+                            <div class="sg-cell" style="grid-column: 23 / span 1;"><div class="sg-bar sns">GW本番</div></div>
+                            <div class="sg-cell" style="grid-column: 29 / span 1;"><div class="sg-bar sns">ラスト</div></div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#7c3aed"></span>アプリプッシュ</div>
-                            <div class="sg-cell" style="grid-column: 2 / span 2;"><div class="sg-bar ads">新作</div></div>
-                            <div class="sg-cell" style="grid-column: 10 / span 2;"><div class="sg-bar ads">カート</div></div>
-                            <div class="sg-cell" style="grid-column: 17 / span 2;"><div class="sg-bar ads">会員限定</div></div>
-                            <div class="sg-cell" style="grid-column: 21 / span 2;"><div class="sg-bar ads">GWセール</div></div>
-                            <div class="sg-cell" style="grid-column: 27 / span 2;"><div class="sg-bar ads">最終</div></div>
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#7c3aed"></span>アプリプッシュ</span>
+                                <span class="secondary">iOS/Android / パーソナライズ</span>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 2 / span 1;"><div class="sg-bar ads">新作</div></div>
+                            <div class="sg-cell" style="grid-column: 10 / span 1;"><div class="sg-bar ads">カート離脱</div></div>
+                            <div class="sg-cell" style="grid-column: 17 / span 1;"><div class="sg-bar ads">会員限定</div></div>
+                            <div class="sg-cell" style="grid-column: 21 / span 1;"><div class="sg-bar ads">GWセール</div></div>
+                            <div class="sg-cell" style="grid-column: 27 / span 1;"><div class="sg-bar ads">最終</div></div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#0891b2"></span>Webプッシュ</div>
-                            <div class="sg-cell" style="grid-column: 6 / span 2;"><div class="sg-bar lp">週次</div></div>
-                            <div class="sg-cell" style="grid-column: 14 / span 2;"><div class="sg-bar lp">週次</div></div>
-                            <div class="sg-cell" style="grid-column: 22 / span 2;"><div class="sg-bar lp">GW前</div></div>
-                            <div class="sg-cell" style="grid-column: 28 / span 2;"><div class="sg-bar lp">最終</div></div>
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#0891b2"></span>Webプッシュ</span>
+                                <span class="secondary">ブラウザ通知 / オプトイン顧客</span>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 6 / span 1;"><div class="sg-bar lp">週次</div></div>
+                            <div class="sg-cell" style="grid-column: 14 / span 1;"><div class="sg-bar lp">週次</div></div>
+                            <div class="sg-cell" style="grid-column: 22 / span 1;"><div class="sg-bar lp">GW前</div></div>
+                            <div class="sg-cell" style="grid-column: 28 / span 1;"><div class="sg-bar lp">最終</div></div>
 
-                            <div class="sg-row-label"><span class="dot" style="background:#dc2626"></span>SMS</div>
-                            <div class="sg-cell" style="grid-column: 20 / span 2;"><div class="sg-bar sale">VIP限定</div></div>
+                            <div class="sg-row-label">
+                                <span class="primary"><span class="dot" style="background:#dc2626"></span>SMS</span>
+                                <span class="secondary">VIP限定 / テキスト配信</span>
+                            </div>
+                            <div class="sg-cell" style="grid-column: 20 / span 1;"><div class="sg-bar sale">VIP限定</div></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- CRM媒体別 指標テーブル -->
+            <!-- CRM媒体別 指標テーブル (送信人数/開封率追加、CPC/CPA削除) -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="grid-outline"></ion-icon> CRM媒体別 指標 (指定期間)</h2>
+                <div class="date-range-bar inline-sub">
+                    <span class="drb-label"><ion-icon name="calendar-outline"></ion-icon> 指標期間</span>
+                    <div class="drb-preset-group">
+                        <button>過去7日</button>
+                        <button>過去30日</button>
+                        <button class="active">今月</button>
+                        <button>先月</button>
+                    </div>
+                    <input type="date" value="2026-04-01">
+                    <span class="drb-sep">〜</span>
+                    <input type="date" value="2026-04-30">
+                    <button class="drb-apply">適用</button>
+                </div>
                 <div class="table-card glass-panel">
                     <div class="table-responsive">
                         <table class="media-metrics-table">
@@ -177,13 +205,12 @@
                                 <tr>
                                     <th>チャネル</th>
                                     <th>コスト</th>
-                                    <th>インプレッション</th>
+                                    <th>送信人数</th>
+                                    <th>開封率</th>
                                     <th>クリック数</th>
                                     <th>クリック率</th>
-                                    <th>CPC</th>
                                     <th>CV</th>
                                     <th>CVR</th>
-                                    <th>CPA</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -191,56 +218,51 @@
                                     <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
                                     <td>¥180,000</td>
                                     <td>1,948,000</td>
+                                    <td>22.40%</td>
                                     <td>89,608</td>
                                     <td>4.60%</td>
-                                    <td>¥2</td>
                                     <td>5,735</td>
                                     <td>6.40%</td>
-                                    <td>¥31</td>
                                 </tr>
                                 <tr>
                                     <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
                                     <td>¥280,000</td>
                                     <td>1,820,000</td>
+                                    <td>42.00%</td>
                                     <td>160,160</td>
                                     <td>8.80%</td>
-                                    <td>¥2</td>
                                     <td>13,133</td>
                                     <td>8.20%</td>
-                                    <td>¥21</td>
                                 </tr>
                                 <tr>
                                     <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span></td>
                                     <td>¥80,000</td>
                                     <td>342,000</td>
+                                    <td>54.80%</td>
                                     <td>55,404</td>
                                     <td>16.20%</td>
-                                    <td>¥1</td>
                                     <td>2,826</td>
                                     <td>5.10%</td>
-                                    <td>¥28</td>
                                 </tr>
                                 <tr>
                                     <td><span class="media-name"><span class="media-dot" style="background:#0891b2"></span>Webプッシュ</span></td>
                                     <td>¥40,000</td>
                                     <td>148,000</td>
+                                    <td>38.20%</td>
                                     <td>15,392</td>
                                     <td>10.40%</td>
-                                    <td>¥3</td>
                                     <td>493</td>
                                     <td>3.20%</td>
-                                    <td>¥81</td>
                                 </tr>
                                 <tr>
                                     <td><span class="media-name"><span class="media-dot" style="background:#dc2626"></span>SMS</span></td>
                                     <td>¥40,000</td>
                                     <td>28,000</td>
+                                    <td>92.40%</td>
                                     <td>4,144</td>
                                     <td>14.80%</td>
-                                    <td>¥10</td>
                                     <td>99</td>
                                     <td>2.40%</td>
-                                    <td>¥404</td>
                                 </tr>
                             </tbody>
                             <tfoot>
@@ -248,14 +270,184 @@
                                     <td>合計</td>
                                     <td>¥620,000</td>
                                     <td>4,286,000</td>
+                                    <td>28.60%</td>
                                     <td>324,708</td>
                                     <td>7.58%</td>
-                                    <td>¥2</td>
                                     <td>22,286</td>
                                     <td>6.86%</td>
-                                    <td>¥28</td>
                                 </tr>
                             </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CRM 配信別 詳細テーブル -->
+            <section class="dashboard-section">
+                <h2 class="section-title"><ion-icon name="list-outline"></ion-icon> 配信別 パフォーマンス</h2>
+                <div class="table-card glass-panel">
+                    <div class="table-responsive">
+                        <table class="media-metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>送信日</th>
+                                    <th>チャネル</th>
+                                    <th>件名</th>
+                                    <th>送信人数</th>
+                                    <th>開封数</th>
+                                    <th>開封率</th>
+                                    <th>クリック数</th>
+                                    <th>クリック率</th>
+                                    <th>CV</th>
+                                    <th>CVR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>04/03</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">春の新作入荷のお知らせ - 人気ジャケット完全レビュー</td>
+                                    <td>324,600</td>
+                                    <td>78,912</td>
+                                    <td>24.31%</td>
+                                    <td>16,240</td>
+                                    <td>5.00%</td>
+                                    <td>1,086</td>
+                                    <td>6.69%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/05</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【セグA限定】新作アイテム先行案内</td>
+                                    <td>380,400</td>
+                                    <td>158,966</td>
+                                    <td>41.80%</td>
+                                    <td>32,640</td>
+                                    <td>8.58%</td>
+                                    <td>2,854</td>
+                                    <td>8.74%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/09</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">スタッフ厳選!春のおすすめコーデ5選</td>
+                                    <td>324,600</td>
+                                    <td>71,412</td>
+                                    <td>22.00%</td>
+                                    <td>14,100</td>
+                                    <td>4.34%</td>
+                                    <td>842</td>
+                                    <td>5.97%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/10</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">カート商品が売り切れ間近!お早めに</td>
+                                    <td>68,400</td>
+                                    <td>38,486</td>
+                                    <td>56.27%</td>
+                                    <td>12,460</td>
+                                    <td>18.22%</td>
+                                    <td>724</td>
+                                    <td>5.81%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/15</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【期間限定】10%OFFクーポン配布中</td>
+                                    <td>364,000</td>
+                                    <td>158,944</td>
+                                    <td>43.67%</td>
+                                    <td>34,220</td>
+                                    <td>9.40%</td>
+                                    <td>3,128</td>
+                                    <td>9.14%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/16</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【特別会員】GW前シークレットセール予告</td>
+                                    <td>324,600</td>
+                                    <td>75,800</td>
+                                    <td>23.35%</td>
+                                    <td>15,420</td>
+                                    <td>4.75%</td>
+                                    <td>984</td>
+                                    <td>6.38%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/18</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール開始!全品最大30%OFF</td>
+                                    <td>384,000</td>
+                                    <td>162,432</td>
+                                    <td>42.30%</td>
+                                    <td>36,420</td>
+                                    <td>9.48%</td>
+                                    <td>3,428</td>
+                                    <td>9.41%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/20</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#dc2626"></span>SMS</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【VIP限定】特別クーポン配信中</td>
+                                    <td>28,000</td>
+                                    <td>25,872</td>
+                                    <td>92.40%</td>
+                                    <td>4,144</td>
+                                    <td>14.80%</td>
+                                    <td>99</td>
+                                    <td>2.40%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/20</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール - 会員様への特別先行案内</td>
+                                    <td>324,600</td>
+                                    <td>72,690</td>
+                                    <td>22.39%</td>
+                                    <td>14,280</td>
+                                    <td>4.40%</td>
+                                    <td>958</td>
+                                    <td>6.71%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/21</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">GWセール開催中!お得アイテム多数</td>
+                                    <td>68,400</td>
+                                    <td>37,800</td>
+                                    <td>55.26%</td>
+                                    <td>11,840</td>
+                                    <td>17.31%</td>
+                                    <td>612</td>
+                                    <td>5.17%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/24</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【最終リマインド】セール残り3日</td>
+                                    <td>324,600</td>
+                                    <td>71,240</td>
+                                    <td>21.95%</td>
+                                    <td>14,960</td>
+                                    <td>4.61%</td>
+                                    <td>928</td>
+                                    <td>6.20%</td>
+                                </tr>
+                                <tr>
+                                    <td>04/28</td>
+                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
+                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【本日最終】GWセール最終日</td>
+                                    <td>324,600</td>
+                                    <td>67,740</td>
+                                    <td>20.87%</td>
+                                    <td>14,808</td>
+                                    <td>4.56%</td>
+                                    <td>937</td>
+                                    <td>6.33%</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -265,10 +457,10 @@
                     <div class="insight-body">
                         <div class="insight-title">CRM 改善ポイント <span class="tag warn">要改善</span></div>
                         <ul>
-                            <li><strong>LINE公式 CVR 8.20% / CPA ¥21</strong>: 売上貢献最大。到達率37%のため未到達セグメントへのWEB/アプリ送客連携を強化。</li>
-                            <li><strong>メルマガ CTR 4.60%、CVR 6.40%</strong>: 件名長30字以内 × 絵文字利用で開封率 +3pt検証中。朝7時配信が最効果。</li>
-                            <li><strong>アプリプッシュ CTR 16.20%</strong>: 3トリガー(カート離脱 / 価格改定 / 再入荷)の動的配信に拡張予定。</li>
-                            <li><strong>SMS CVR 2.40% (低下傾向)</strong>: VIP向け文面のマンネリ化。限定クーポン + 個別担当者署名形式への変更を推奨。</li>
+                            <li><strong>LINE公式 GW前セール (4/18) CVR 9.41%</strong> が最高値。同パターンの「セール開始」タイミング配信を月次ルーチン化推奨。</li>
+                            <li><strong>アプリプッシュ 開封率平均 55%</strong>: 高水準。カート離脱/価格改定/再入荷の3トリガーを動的配信に拡張予定。</li>
+                            <li><strong>メルマガ 開封率 20-24%</strong>: 件名長30字以内 × 絵文字利用で +3pt検証中。朝7時配信が最効果。</li>
+                            <li><strong>SMS CVR 2.40% (低下傾向)</strong>: VIP向け文面のマンネリ化。限定クーポン + 個別担当者署名形式への変更推奨。</li>
                             <li>リピート購入率は <strong>+5.6pt改善</strong>。CRM→SNS(LINE)への相互送客フローで更なる上乗せ余地あり。</li>
                         </ul>
                     </div>

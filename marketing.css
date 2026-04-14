@@ -2,6 +2,285 @@
    Marketing Analytics Dashboard - Supplemental Styles
    ===================================================== */
 
+/* Sticky left column schedule wrapper */
+.schedule-wrapper {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    position: relative;
+    max-height: 520px;
+    overflow-y: auto;
+}
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 220px repeat(12, minmax(60px, 1fr));
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 900px;
+    position: relative;
+}
+.schedule-grid-fine {
+    grid-template-columns: 220px repeat(30, minmax(22px, 1fr));
+    min-width: 1100px;
+}
+.schedule-grid .sg-header {
+    background: #f1f5f9;
+    padding: 10px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: center;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+.schedule-grid .sg-header.label-col {
+    text-align: left;
+    padding-left: 16px;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: #f1f5f9;
+}
+.schedule-grid .sg-row-label {
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    min-width: 220px;
+}
+.schedule-grid .sg-row-label .primary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.schedule-grid .sg-row-label .primary .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.schedule-grid .sg-row-label .secondary {
+    font-size: 11px;
+    color: var(--text-secondary);
+    padding-left: 18px;
+    font-weight: 500;
+}
+.schedule-grid .sg-cell {
+    padding: 8px 4px;
+    border-right: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    position: relative;
+    min-height: 38px;
+}
+.schedule-grid .sg-bar {
+    position: absolute;
+    height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+.schedule-grid .sg-bar.campaign { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+.schedule-grid .sg-bar.sale { background: linear-gradient(90deg, #dc2626, #ef4444); }
+.schedule-grid .sg-bar.ads { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+.schedule-grid .sg-bar.sns { background: linear-gradient(90deg, #059669, #10b981); }
+.schedule-grid .sg-bar.crm { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.schedule-grid .sg-bar.lp { background: linear-gradient(90deg, #0891b2, #22d3ee); }
+.schedule-grid .sg-bar.post { background: linear-gradient(90deg, #ec4899, #f472b6); }
+
+/* Campaign accordion rows (sub-rows per media) */
+.campaign-section {
+    margin-top: 24px;
+}
+.campaign-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px 10px 0 0;
+    font-weight: 700;
+    font-size: 14px;
+}
+.campaign-header .media-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.campaign-header .media-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.campaign-body {
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+.campaign-body .media-metrics-table thead th {
+    background: #fafbfc;
+}
+
+/* Post Card Grid (SNS Top Posts) */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+.post-card {
+    background: #fff;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s;
+}
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.12);
+}
+.post-card .post-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, #e0e7ff, #ede9fe);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 12px;
+}
+.post-card .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.post-card .post-image .post-platform-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.post-card .post-body {
+    padding: 14px 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.post-card .post-date {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.post-card .post-text {
+    font-size: 13px;
+    color: var(--text-primary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 40px;
+}
+.post-card .post-mentions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.post-card .post-mentions .mention {
+    font-size: 10px;
+    font-weight: 600;
+    color: #ec4899;
+    border: 1px solid #fecdd3;
+    background: #fff1f2;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+.post-card .post-metrics {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    border-top: 1px solid #f1f5f9;
+    padding: 12px 4px 8px;
+    margin-top: 6px;
+}
+.post-card .post-metric {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+.post-card .post-metric ion-icon {
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+.post-card .post-metric .val {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.post-card .post-metric .lbl {
+    font-size: 9px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.post-card .post-eng-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0 14px;
+    background: #fafbfc;
+    border-top: 1px solid #f1f5f9;
+}
+.post-card .post-eng-row .eng-rate {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+.post-card .post-eng-row .eng-label {
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
 /* Date Range Selector */
 .date-range-bar {
     display: flex;
@@ -14,6 +293,11 @@
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
     flex-wrap: wrap;
+}
+.date-range-bar.inline-sub {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    background: #f8fafc;
 }
 .date-range-bar .drb-label {
     display: inline-flex;
@@ -381,93 +665,6 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 20px;
-}
-
-.schedule-wrapper {
-    overflow-x: auto;
-    padding-bottom: 8px;
-}
-
-.schedule-grid {
-    display: grid;
-    grid-template-columns: 180px repeat(12, minmax(60px, 1fr));
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    overflow: hidden;
-    min-width: 900px;
-}
-
-.schedule-grid .sg-header {
-    background: #f1f5f9;
-    padding: 10px 8px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-secondary);
-    text-align: center;
-    border-right: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.schedule-grid .sg-header.label-col {
-    text-align: left;
-    padding-left: 16px;
-}
-
-.schedule-grid .sg-row-label {
-    padding: 10px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
-    background: #f8fafc;
-    border-right: 1px solid #e2e8f0;
-    border-bottom: 1px solid #f1f5f9;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.schedule-grid .sg-row-label .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.schedule-grid .sg-cell {
-    padding: 8px 4px;
-    border-right: 1px solid #f1f5f9;
-    border-bottom: 1px solid #f1f5f9;
-    position: relative;
-    min-height: 38px;
-}
-
-.schedule-grid .sg-bar {
-    position: absolute;
-    height: 22px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    color: #fff;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
-
-.schedule-grid .sg-bar.campaign { background: linear-gradient(90deg, #2563eb, #3b82f6); }
-.schedule-grid .sg-bar.sale { background: linear-gradient(90deg, #dc2626, #ef4444); }
-.schedule-grid .sg-bar.ads { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
-.schedule-grid .sg-bar.sns { background: linear-gradient(90deg, #059669, #10b981); }
-.schedule-grid .sg-bar.crm { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-.schedule-grid .sg-bar.lp { background: linear-gradient(90deg, #0891b2, #22d3ee); }
-
-/* Small grid variant for media schedules (weekly x 12 cols -> days x 30) */
-.schedule-grid-fine {
-    grid-template-columns: 180px repeat(30, minmax(22px, 1fr));
-    min-width: 1100px;
 }
 
 /* Demographics */
