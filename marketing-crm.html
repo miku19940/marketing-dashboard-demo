@@ -284,173 +284,329 @@
                 </div>
             </section>
 
-            <!-- CRM 配信別 詳細テーブル -->
+            <!-- CRM 配信別 詳細テーブル (媒体ごとにブロック分け、日付順) -->
             <section class="dashboard-section">
                 <h2 class="section-title"><ion-icon name="list-outline"></ion-icon> 配信別 パフォーマンス</h2>
-                <div class="table-card glass-panel">
-                    <div class="table-responsive">
-                        <table class="media-metrics-table">
-                            <thead>
-                                <tr>
-                                    <th>送信日</th>
-                                    <th>チャネル</th>
-                                    <th>件名</th>
-                                    <th>送信人数</th>
-                                    <th>開封数</th>
-                                    <th>開封率</th>
-                                    <th>クリック数</th>
-                                    <th>クリック率</th>
-                                    <th>CV</th>
-                                    <th>CVR</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>04/03</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">春の新作入荷のお知らせ - 人気ジャケット完全レビュー</td>
-                                    <td>324,600</td>
-                                    <td>78,912</td>
-                                    <td>24.31%</td>
-                                    <td>16,240</td>
-                                    <td>5.00%</td>
-                                    <td>1,086</td>
-                                    <td>6.69%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/05</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【セグA限定】新作アイテム先行案内</td>
-                                    <td>380,400</td>
-                                    <td>158,966</td>
-                                    <td>41.80%</td>
-                                    <td>32,640</td>
-                                    <td>8.58%</td>
-                                    <td>2,854</td>
-                                    <td>8.74%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/09</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">スタッフ厳選!春のおすすめコーデ5選</td>
-                                    <td>324,600</td>
-                                    <td>71,412</td>
-                                    <td>22.00%</td>
-                                    <td>14,100</td>
-                                    <td>4.34%</td>
-                                    <td>842</td>
-                                    <td>5.97%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/10</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">カート商品が売り切れ間近!お早めに</td>
-                                    <td>68,400</td>
-                                    <td>38,486</td>
-                                    <td>56.27%</td>
-                                    <td>12,460</td>
-                                    <td>18.22%</td>
-                                    <td>724</td>
-                                    <td>5.81%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/15</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【期間限定】10%OFFクーポン配布中</td>
-                                    <td>364,000</td>
-                                    <td>158,944</td>
-                                    <td>43.67%</td>
-                                    <td>34,220</td>
-                                    <td>9.40%</td>
-                                    <td>3,128</td>
-                                    <td>9.14%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/16</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【特別会員】GW前シークレットセール予告</td>
-                                    <td>324,600</td>
-                                    <td>75,800</td>
-                                    <td>23.35%</td>
-                                    <td>15,420</td>
-                                    <td>4.75%</td>
-                                    <td>984</td>
-                                    <td>6.38%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/18</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール開始!全品最大30%OFF</td>
-                                    <td>384,000</td>
-                                    <td>162,432</td>
-                                    <td>42.30%</td>
-                                    <td>36,420</td>
-                                    <td>9.48%</td>
-                                    <td>3,428</td>
-                                    <td>9.41%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/20</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#dc2626"></span>SMS</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【VIP限定】特別クーポン配信中</td>
-                                    <td>28,000</td>
-                                    <td>25,872</td>
-                                    <td>92.40%</td>
-                                    <td>4,144</td>
-                                    <td>14.80%</td>
-                                    <td>99</td>
-                                    <td>2.40%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/20</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール - 会員様への特別先行案内</td>
-                                    <td>324,600</td>
-                                    <td>72,690</td>
-                                    <td>22.39%</td>
-                                    <td>14,280</td>
-                                    <td>4.40%</td>
-                                    <td>958</td>
-                                    <td>6.71%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/21</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">GWセール開催中!お得アイテム多数</td>
-                                    <td>68,400</td>
-                                    <td>37,800</td>
-                                    <td>55.26%</td>
-                                    <td>11,840</td>
-                                    <td>17.31%</td>
-                                    <td>612</td>
-                                    <td>5.17%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/24</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【最終リマインド】セール残り3日</td>
-                                    <td>324,600</td>
-                                    <td>71,240</td>
-                                    <td>21.95%</td>
-                                    <td>14,960</td>
-                                    <td>4.61%</td>
-                                    <td>928</td>
-                                    <td>6.20%</td>
-                                </tr>
-                                <tr>
-                                    <td>04/28</td>
-                                    <td><span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span></td>
-                                    <td style="text-align:left; max-width: 280px; white-space: normal;">【本日最終】GWセール最終日</td>
-                                    <td>324,600</td>
-                                    <td>67,740</td>
-                                    <td>20.87%</td>
-                                    <td>14,808</td>
-                                    <td>4.56%</td>
-                                    <td>937</td>
-                                    <td>6.33%</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <p style="font-size:13px; color: var(--text-secondary); margin-bottom: 14px;">媒体ごとにブロック分けし、指定期間の配信を日付順（古い順）で表示しています。</p>
+
+                <!-- メルマガ -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#f59e0b"></span>メルマガ</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">6件配信</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>送信日</th>
+                                        <th>件名</th>
+                                        <th>送信人数</th>
+                                        <th>開封数</th>
+                                        <th>開封率</th>
+                                        <th>クリック数</th>
+                                        <th>クリック率</th>
+                                        <th>CV</th>
+                                        <th>CVR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>04/03</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">春の新作入荷のお知らせ - 人気ジャケット完全レビュー</td>
+                                        <td>324,600</td>
+                                        <td>78,912</td>
+                                        <td>24.31%</td>
+                                        <td>16,240</td>
+                                        <td>5.00%</td>
+                                        <td>1,086</td>
+                                        <td>6.69%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/09</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">スタッフ厳選!春のおすすめコーデ5選</td>
+                                        <td>324,600</td>
+                                        <td>71,412</td>
+                                        <td>22.00%</td>
+                                        <td>14,100</td>
+                                        <td>4.34%</td>
+                                        <td>842</td>
+                                        <td>5.97%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/16</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【特別会員】GW前シークレットセール予告</td>
+                                        <td>324,600</td>
+                                        <td>75,800</td>
+                                        <td>23.35%</td>
+                                        <td>15,420</td>
+                                        <td>4.75%</td>
+                                        <td>984</td>
+                                        <td>6.38%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/20</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール - 会員様への特別先行案内</td>
+                                        <td>324,600</td>
+                                        <td>72,690</td>
+                                        <td>22.39%</td>
+                                        <td>14,280</td>
+                                        <td>4.40%</td>
+                                        <td>958</td>
+                                        <td>6.71%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/24</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【最終リマインド】セール残り3日</td>
+                                        <td>324,600</td>
+                                        <td>71,240</td>
+                                        <td>21.95%</td>
+                                        <td>14,960</td>
+                                        <td>4.61%</td>
+                                        <td>928</td>
+                                        <td>6.20%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/28</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【本日最終】GWセール最終日</td>
+                                        <td>324,600</td>
+                                        <td>67,740</td>
+                                        <td>20.87%</td>
+                                        <td>14,808</td>
+                                        <td>4.56%</td>
+                                        <td>937</td>
+                                        <td>6.33%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LINE公式 -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#06c755"></span>LINE公式</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">3件配信</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>送信日</th>
+                                        <th>件名</th>
+                                        <th>送信人数</th>
+                                        <th>開封数</th>
+                                        <th>開封率</th>
+                                        <th>クリック数</th>
+                                        <th>クリック率</th>
+                                        <th>CV</th>
+                                        <th>CVR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>04/05</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【セグA限定】新作アイテム先行案内</td>
+                                        <td>380,400</td>
+                                        <td>158,966</td>
+                                        <td>41.80%</td>
+                                        <td>32,640</td>
+                                        <td>8.58%</td>
+                                        <td>2,854</td>
+                                        <td>8.74%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/15</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【期間限定】10%OFFクーポン配布中</td>
+                                        <td>364,000</td>
+                                        <td>158,944</td>
+                                        <td>43.67%</td>
+                                        <td>34,220</td>
+                                        <td>9.40%</td>
+                                        <td>3,128</td>
+                                        <td>9.14%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/18</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール開始!全品最大30%OFF</td>
+                                        <td>384,000</td>
+                                        <td>162,432</td>
+                                        <td>42.30%</td>
+                                        <td>36,420</td>
+                                        <td>9.48%</td>
+                                        <td>3,428</td>
+                                        <td>9.41%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アプリプッシュ -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#7c3aed"></span>アプリプッシュ</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">2件配信</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>送信日</th>
+                                        <th>件名</th>
+                                        <th>送信人数</th>
+                                        <th>開封数</th>
+                                        <th>開封率</th>
+                                        <th>クリック数</th>
+                                        <th>クリック率</th>
+                                        <th>CV</th>
+                                        <th>CVR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>04/10</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">カート商品が売り切れ間近!お早めに</td>
+                                        <td>68,400</td>
+                                        <td>38,486</td>
+                                        <td>56.27%</td>
+                                        <td>12,460</td>
+                                        <td>18.22%</td>
+                                        <td>724</td>
+                                        <td>5.81%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/21</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">GWセール開催中!お得アイテム多数</td>
+                                        <td>68,400</td>
+                                        <td>37,800</td>
+                                        <td>55.26%</td>
+                                        <td>11,840</td>
+                                        <td>17.31%</td>
+                                        <td>612</td>
+                                        <td>5.17%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Webプッシュ -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#0891b2"></span>Webプッシュ</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">4件配信</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>送信日</th>
+                                        <th>件名</th>
+                                        <th>送信人数</th>
+                                        <th>開封数</th>
+                                        <th>開封率</th>
+                                        <th>クリック数</th>
+                                        <th>クリック率</th>
+                                        <th>CV</th>
+                                        <th>CVR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>04/06</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">週次新作紹介 - 今週のおすすめアイテム</td>
+                                        <td>37,000</td>
+                                        <td>14,060</td>
+                                        <td>38.00%</td>
+                                        <td>3,820</td>
+                                        <td>10.32%</td>
+                                        <td>118</td>
+                                        <td>3.09%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/14</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">今週の人気コーデ提案 - 春のおすすめ</td>
+                                        <td>37,000</td>
+                                        <td>14,430</td>
+                                        <td>39.00%</td>
+                                        <td>3,940</td>
+                                        <td>10.65%</td>
+                                        <td>124</td>
+                                        <td>3.15%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/22</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">GW前セール告知 - 最大30%OFF</td>
+                                        <td>37,000</td>
+                                        <td>14,800</td>
+                                        <td>40.00%</td>
+                                        <td>3,960</td>
+                                        <td>10.70%</td>
+                                        <td>132</td>
+                                        <td>3.33%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04/28</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【最終日】GWセールは本日まで</td>
+                                        <td>37,000</td>
+                                        <td>13,690</td>
+                                        <td>37.00%</td>
+                                        <td>3,672</td>
+                                        <td>9.92%</td>
+                                        <td>119</td>
+                                        <td>3.24%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SMS -->
+                <div class="campaign-section">
+                    <div class="campaign-header">
+                        <span class="media-name"><span class="media-dot" style="background:#dc2626"></span>SMS</span>
+                        <span style="font-size: 12px; color: var(--text-secondary);">1件配信</span>
+                    </div>
+                    <div class="campaign-body">
+                        <div class="table-responsive">
+                            <table class="media-metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>送信日</th>
+                                        <th>件名</th>
+                                        <th>送信人数</th>
+                                        <th>開封数</th>
+                                        <th>開封率</th>
+                                        <th>クリック数</th>
+                                        <th>クリック率</th>
+                                        <th>CV</th>
+                                        <th>CVR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>04/20</td>
+                                        <td style="text-align:left; max-width: 280px; white-space: normal;">【VIP限定】特別クーポン配信中</td>
+                                        <td>28,000</td>
+                                        <td>25,872</td>
+                                        <td>92.40%</td>
+                                        <td>4,144</td>
+                                        <td>14.80%</td>
+                                        <td>99</td>
+                                        <td>2.40%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
