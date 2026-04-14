@@ -493,7 +493,125 @@ MKT.initDateRangeBars = function() {
         return null;
     };
 
-    // 各期間選択バーにイベントをバインド
+    // プリセット別の倍率 (今月=1.0 基準)
+    const presetMultiplier = {
+        '昨日': 0.033,
+        '過去7日': 0.233,
+        '過去30日': 1.0,
+        '今月': 1.0,
+        '先月': 0.88,
+        '今年': 4.0
+    };
+
+    // 数値のタイプを判定してパース
+    const parseValue = (text) => {
+        const s = (text || '').trim();
+        if (!s || s === '—' || s === '-') return null;
+        if (s.endsWith('%')) {
+            const n = parseFloat(s.replace('%', ''));
+            return isNaN(n) ? null : { num: n, type: 'rate' };
+        }
+        if (s.startsWith('+¥') || s.startsWith('-¥')) {
+            return null; // delta値はスキップ
+        }
+        if (s.startsWith('¥')) {
+            const n = parseFloat(s.replace(/[¥,]/g, ''));
+            if (isNaN(n)) return null;
+            // 小さい金額 = 単価 (CPC/CPA), 大きい金額 = 総額
+            return { num: n, type: n < 50000 ? 'perUnit' : 'amount' };
+        }
+        // 数字のみ (例: 14,826 / 3.20)
+        if (/^[\d,]+\.?\d*$/.test(s)) {
+            const n = parseFloat(s.replace(/,/g, ''));
+            return isNaN(n) ? null : { num: n, type: 'count' };
+        }
+        return null;
+    };
+
+    // 数値をフォーマット
+    const format = (num, type) => {
+        if (type === 'rate') return num.toFixed(2) + '%';
+        if (type === 'perUnit' || type === 'amount') return '¥' + Math.round(num).toLocaleString();
+        if (Number.isInteger(num) || num >= 100) return Math.round(num).toLocaleString();
+        return num.toFixed(2);
+    };
+
+    // 対象要素を走査して data-original 属性に元の値を保存
+    const captureAll = () => {
+        const selectors = [
+            '.kpi-value',
+            '.media-metrics-table tbody td',
+            '.media-metrics-table tfoot td',
+            '.post-card .post-metric .val',
+            '.post-card .post-eng-row .eng-rate'
+        ];
+        document.querySelectorAll(selectors.join(', ')).forEach(el => {
+            // 既に処理済みならスキップ
+            if (el.hasAttribute('data-base-value')) return;
+            // 最初のテキスト子ノードを取得
+            let textNode = null;
+            for (const child of el.childNodes) {
+                if (child.nodeType === 3 && child.textContent.trim().length > 0) {
+                    textNode = child;
+                    break;
+                }
+            }
+            if (!textNode) return;
+            const parsed = parseValue(textNode.textContent);
+            if (!parsed) return;
+            el.setAttribute('data-base-value', parsed.num);
+            el.setAttribute('data-value-type', parsed.type);
+            // ノード参照も保持
+            el._mktTextNode = textNode;
+        });
+    };
+
+    // 倍率を適用して全要素を更新
+    const applyMultiplier = (mult, label) => {
+        let updated = 0;
+        document.querySelectorAll('[data-base-value]').forEach((el, idx) => {
+            const baseNum = parseFloat(el.getAttribute('data-base-value'));
+            const type = el.getAttribute('data-value-type');
+            if (isNaN(baseNum)) return;
+            let newNum;
+            const variance = Math.sin(idx * 0.37 + mult * 2.1) * 0.06;
+            if (type === 'rate') {
+                newNum = baseNum * (1 + variance);
+                if (newNum < 0) newNum = 0.01;
+            } else if (type === 'perUnit') {
+                newNum = baseNum * (1 + variance);
+            } else {
+                const extra = (label === '先月') ? -0.02 : (label === '今年' ? 0.05 : 0);
+                newNum = baseNum * mult * (1 + variance + extra);
+            }
+            // テキストノードがあればそれを更新、なければ要素のfirstChildを書き換え
+            const formatted = format(newNum, type);
+            if (el._mktTextNode) {
+                el._mktTextNode.textContent = formatted;
+            } else {
+                // fallback: find first text child
+                for (const child of el.childNodes) {
+                    if (child.nodeType === 3) {
+                        child.textContent = formatted;
+                        break;
+                    }
+                }
+            }
+            // 更新ハイライト (黄色フラッシュ)
+            el.style.transition = 'background-color 0.4s ease';
+            el.style.backgroundColor = 'rgba(251, 191, 36, 0.25)';
+            setTimeout(() => {
+                el.style.backgroundColor = '';
+            }, 500);
+            updated++;
+        });
+        return updated;
+    };
+
+    // 初回: 原本の数値をキャプチャ
+    captureAll();
+
+    // イベントバインド
     document.querySelectorAll('.date-range-bar').forEach(bar => {
         const buttons = bar.querySelectorAll('.drb-preset-group button');
         const inputs = bar.querySelectorAll('input[type="date"]');
@@ -501,33 +619,48 @@ MKT.initDateRangeBars = function() {
 
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
-                // アクティブ切り替え
-                buttons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                // 日付入力を更新
+                // すべての期間バーのアクティブ状態を同期
+                document.querySelectorAll('.date-range-bar .drb-preset-group button').forEach(b => {
+                    if (b.textContent.trim() === btn.textContent.trim()) {
+                        b.classList.add('active');
+                    } else {
+                        b.classList.remove('active');
+                    }
+                });
                 const label = btn.textContent.trim();
                 const range = computeRange(label);
-                if (range && inputs.length >= 2) {
-                    inputs[0].value = fmt(range.start);
-                    inputs[1].value = fmt(range.end);
+                if (range) {
+                    // 全ての期間バーの入力欄を同期
+                    document.querySelectorAll('.date-range-bar input[type="date"]').forEach((inp, i) => {
+                        const idx = i % 2;
+                        inp.value = fmt(idx === 0 ? range.start : range.end);
+                    });
+                    // 数値を更新
+                    const mult = presetMultiplier[label] || 1.0;
+                    applyMultiplier(mult, label);
+                    MKT.showToast(`${label}: ${fmt(range.start)} 〜 ${fmt(range.end)} の数値を表示`);
                 }
             });
         });
 
-        // 日付入力を直接変更した場合はプリセットのアクティブを解除
         inputs.forEach(inp => {
             inp.addEventListener('change', () => {
                 buttons.forEach(b => b.classList.remove('active'));
             });
         });
 
-        // 適用ボタン
         if (applyBtn) {
             applyBtn.addEventListener('click', () => {
                 const from = inputs[0] ? inputs[0].value : '';
                 const to = inputs[1] ? inputs[1].value : '';
-                // デモ画面: 実データ連携は未実装のためトーストで通知
-                MKT.showToast(`期間を適用しました: ${from} 〜 ${to}`);
+                // カスタム期間: 日数差から倍率を計算
+                if (from && to) {
+                    const d1 = new Date(from), d2 = new Date(to);
+                    const days = Math.max(1, Math.round((d2 - d1) / 86400000) + 1);
+                    const mult = days / 30;
+                    applyMultiplier(mult, 'カスタム');
+                    MKT.showToast(`期間を適用: ${from} 〜 ${to} (${days}日間)`);
+                }
             });
         }
     });
