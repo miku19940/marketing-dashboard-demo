@@ -151,6 +151,40 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
 }
+.post-grid-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 4px 2px 16px 2px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.post-grid-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+.post-grid-scroll::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 6px;
+}
+.post-grid-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 6px;
+}
+.post-grid-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+.post-grid-scroll .post-card {
+    flex: 0 0 calc((100% - 48px) / 4);
+    min-width: 240px;
+    scroll-snap-align: start;
+}
+@media (max-width: 900px) {
+    .post-grid-scroll .post-card { flex: 0 0 calc((100% - 32px) / 2); }
+}
+@media (max-width: 600px) {
+    .post-grid-scroll .post-card { flex: 0 0 82%; }
+}
 .post-card {
     background: #fff;
     border: 1px solid var(--glass-border);
